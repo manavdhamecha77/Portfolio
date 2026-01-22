@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+nav a {
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+
+.hero-btns a:hover {
+  opacity: .7;
+  transform: translateY(-2px);
+}
