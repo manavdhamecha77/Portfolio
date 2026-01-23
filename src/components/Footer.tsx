@@ -7,7 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
-  const footerRef = useRef(null);
+  // Type the footer element
+  const footerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -29,22 +30,9 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="
-        py-10
-        px-10
-        text-center
-        max-w-6xl mx-auto
-      "
+      className="py-10 px-10 text-center max-w-6xl mx-auto"
     >
-      <p
-        className="
-          footer-content
-          text-xs
-          tracking-widest
-          uppercase
-          text-neutral-500
-        "
-      >
+      <p className="footer-content text-xs tracking-widest uppercase text-neutral-500">
         © {new Date().getFullYear()} Manav Dhamecha — All Rights Reserved.
       </p>
     </footer>

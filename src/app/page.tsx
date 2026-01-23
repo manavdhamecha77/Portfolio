@@ -1,19 +1,17 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Experience from "../components/Experience";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
+import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import About from "@/components/About";
 
 export default function Home() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Experience />
-      <Skills />
-      <Projects />
+      <About/>
+      <Portfolio/>
       <Contact />
       <Footer />
     </div>
