@@ -15,7 +15,12 @@ export default function Navbar() {
       gsap.from(navRef.current, { y: -40, opacity: 0, duration: 0.8 });
 
       gsap.set(logoRef.current, { opacity: 1, y: 0, willChange: "transform" });
-      gsap.from(logoRef.current, { y: -10, opacity: 0, duration: 0.5, delay: 0.2 });
+      gsap.from(logoRef.current, {
+        y: -10,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.2,
+      });
 
       gsap.from(linksRef.current.filter(Boolean), {
         y: -10,
@@ -36,7 +41,7 @@ export default function Navbar() {
       gsap.fromTo(
         mobileRef.current,
         { y: -10, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" }
+        { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" },
       );
     } else {
       gsap.to(mobileRef.current, {
@@ -51,27 +56,40 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-lg"
+      className="
+    fixed top-0 left-0 w-full z-50
+    backdrop-blur-xl bg-white/5 border-b border-white/10
+  "
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
         {/* Logo */}
         <a
           ref={logoRef}
           href="#home"
-          className="text-sm font-semibold tracking-wide text-neutral-100 will-change-transform"
+          className="
+        text-sm font-semibold tracking-[0.25em] uppercase
+        text-white
+        will-change-transform
+      "
         >
-          Manav Dhamecha
+          Manav
         </a>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex gap-10 text-xs uppercase tracking-widest text-neutral-300">
+        <ul className="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.25em] text-white/70">
           {["Home", "About", "Portfolio", "Contact"].map((item, index) => (
             <li
               key={item}
               ref={(el) => void (linksRef.current[index] = el)}
-              className="will-change-transform"
+              className="relative group"
             >
-              <a href={`#${item.toLowerCase()}`}>{item}</a>
+              <a
+                href={`#${item.toLowerCase()}`}
+                className="block pb-1 text-white/80 group-hover:text-white"
+              >
+                {item}
+              </a>
+              <span className="absolute left-0 -bottom-[2px] w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300" />
             </li>
           ))}
         </ul>
@@ -79,7 +97,7 @@ export default function Navbar() {
         {/* Mobile Hamburger */}
         <button
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden text-neutral-200"
+          className="md:hidden text-white/90 text-xl"
           aria-expanded={open}
         >
           {open ? "✕" : "☰"}
@@ -89,19 +107,24 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         ref={mobileRef}
-        className={`md:hidden flex flex-col gap-6 px-6 pb-6 text-neutral-200 text-sm uppercase tracking-widest ${
-          open ? "block" : "hidden"
-        }`}
+        className={`
+      md:hidden px-6 pb-6 pt-4 flex flex-col gap-3
+      backdrop-blur-xl bg-white/5 border-t border-white/10 transition-all
+      ${open ? "block" : "hidden"}
+    `}
       >
         {["Home", "About", "Portfolio", "Contact"].map((item) => (
-          <a
+          <button
             key={item}
-            href={`#${item.toLowerCase()}`}
             onClick={() => setOpen(false)}
-            className="opacity-90 hover:opacity-100 transition"
+            className="
+          w-full py-2 rounded-full text-xs uppercase tracking-[0.25em]
+          text-white/80 hover:text-white hover:bg-white/10
+          transition
+        "
           >
             {item}
-          </a>
+          </button>
         ))}
       </div>
     </nav>

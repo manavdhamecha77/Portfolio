@@ -59,50 +59,77 @@ export default function Contact() {
     >
       <div className="w-full max-w-xl">
         {/* Heading */}
-        <div className="contact-heading text-center mb-12">
-          <h2 className="text-4xl font-semibold">Contact Me</h2>
-          <p className="mt-4 text-sm opacity-70">
-            Got a question? Send me a message and I’ll get back to you soon.
+        <div className="contact-heading text-center mb-16">
+          <h2 className="text-6xl font-semibold text-white">Contact</h2>
+          <p className="mt-4 text-sm text-white/60">
+            Send me a message — I usually reply within a day.
           </p>
         </div>
 
         {/* Card */}
-        <div className="contact-card rounded-2xl border border-neutral-800 p-6 md:p-8 space-y-8">
+        <div
+          className="
+        contact-card rounded-3xl px-8 py-10 backdrop-blur-xl
+        border border-white/10 bg-white/5 shadow-[0_0_50px_rgba(255,255,255,0.04)]
+        space-y-10 transition-all duration-300
+      "
+        >
           {/* Form */}
           <div>
-            <h3 className="text-lg font-medium mb-1">Get in Touch</h3>
-            <p className="text-sm opacity-70 mb-6">
-              Have something to discuss? Let’s talk.
+            <h3 className="text-lg font-medium text-white">Get in Touch</h3>
+            <p className="text-sm text-white/60 mt-1">
+              Fill the form and I’ll get back to you.
             </p>
 
-            <form className="space-y-5">
-              <div className="form-group">
+            <form className="mt-8 space-y-6">
+              <div className="form-group group">
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full bg-transparent border border-neutral-800 rounded-lg px-4 py-2 text-sm outline-none"
+                  className="
+                w-full bg-white/5 border border-white/10 text-white
+                rounded-lg px-4 py-3 text-sm outline-none transition-all
+                group-hover:border-white/30
+                focus:border-white focus:bg-white/10
+              "
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group group">
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full bg-transparent border border-neutral-800 rounded-lg px-4 py-2 text-sm outline-none"
+                  className="
+                w-full bg-white/5 border border-white/10 text-white
+                rounded-lg px-4 py-3 text-sm outline-none transition-all
+                group-hover:border-white/30
+                focus:border-white focus:bg-white/10
+              "
                 />
               </div>
 
-              <div className="form-group">
+              <div className="form-group group">
                 <textarea
                   rows={4}
                   placeholder="Your Message"
-                  className="w-full bg-transparent border border-neutral-800 rounded-lg px-4 py-2 text-sm outline-none resize-none"
+                  className="
+                w-full bg-white/5 border border-white/10 text-white
+                rounded-lg px-4 py-3 text-sm outline-none resize-none transition-all
+                group-hover:border-white/30
+                focus:border-white focus:bg-white/10
+              "
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full border border-neutral-700 rounded-lg py-2 text-sm transition"
+                className="
+              w-full px-8 py-3 rounded-lg
+              bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em]
+              shadow-[0_0_32px_rgba(255,255,255,0.5)]
+              hover:shadow-[0_0_48px_rgba(255,255,255,0.85)]
+              transition-all duration-300 hover:scale-[1.04]
+            "
               >
                 Send Message
               </button>
@@ -110,21 +137,25 @@ export default function Contact() {
           </div>
 
           {/* Socials */}
-          <div className="pt-6 border-t border-neutral-800">
-            <p className="text-xs uppercase tracking-widest opacity-60 mb-4">
-              Connect With Me
+          <div className="pt-6 border-t border-white/10">
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
+              Socials
             </p>
 
-            <div className="space-y-3 text-sm">
-              <a className="block border border-neutral-800 rounded-lg px-4 py-2">
-                LinkedIn
-              </a>
-              <a className="block border border-neutral-800 rounded-lg px-4 py-2">
-                Instagram
-              </a>
-              <a className="block border border-neutral-800 rounded-lg px-4 py-2">
-                GitHub
-              </a>
+            <div className="flex flex-col gap-3">
+              {["LinkedIn", "Instagram", "GitHub"].map((s) => (
+                <a
+                  key={s}
+                  className="
+                text-sm px-4 py-2 rounded-full
+                border border-white/10 text-white/80
+                hover:text-white hover:border-white/30
+                transition-all duration-200
+              "
+                >
+                  {s}
+                </a>
+              ))}
             </div>
           </div>
         </div>

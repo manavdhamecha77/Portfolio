@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+
+import { ABOUT_TABS, type AboutTab, EDUCATION, EXPERIENCE } from "@/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +12,8 @@ export default function About() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const textRef = useRef<HTMLParagraphElement | null>(null);
+
+  const [activeTab, setActiveTab] = useState<AboutTab>("Experience");
 
   // For arrays: use HTMLAnchorElement | null (for buttons)
   const buttonsRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -39,7 +43,7 @@ export default function About() {
             y: 20,
             opacity: 0,
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           buttonsRef.current.filter(Boolean), // null-safe
@@ -49,7 +53,7 @@ export default function About() {
             stagger: 0.15,
             duration: 0.6,
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           cardsRef.current.filter(Boolean),
@@ -59,82 +63,170 @@ export default function About() {
             stagger: 0.2,
             duration: 0.7,
           },
-          "-=0.2"
+          "-=0.2",
         );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const children = Array.from(container.children) as HTMLElement[];
+
+    gsap.fromTo(
+      children,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.12,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+    );
+  }, [activeTab]);
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <section id="about" ref={sectionRef} className="min-h-screen px-10 py-32">
-      {/* Header */}
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 ref={titleRef} className="text-4xl font-semibold text-neutral-100">
-          About Me
-        </h2>
+  <section id="about" ref={sectionRef} className="min-h-screen px-6 sm:px-10 py-32">
+    {/* Header */}
+    <div className="max-w-3xl mx-auto text-center">
+      <h2
+        ref={titleRef}
+        className="text-5xl sm:text-6xl font-semibold text-white tracking-tight"
+      >
+        About Me
+      </h2>
 
-        <p ref={textRef} className="mt-6 text-neutral-400 leading-relaxed">
-          Hello, I&apos;m Manav Dhamecha, passionate about building smart
-          and scalable web & mobile applications. I&apos;ve completed a
-          full-stack development course and constantly explore new technologies
-          to refine my skills. Focused on continuous learning, I aim to
-          transition into the IT industry and eventually move toward AI and
-          data science.
-        </p>
+      <p
+        ref={textRef}
+        className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
+      >
+        Hello, I&apos;m Manav Dhamecha — passionate about building smart and
+        scalable web & mobile applications.
+      </p>
 
-        {/* Buttons */}
-        <div className="mt-10 flex justify-center gap-4">
-          <a
-            ref={(el) => void (buttonsRef.current[0] = el)}
-            href="#"
-            className="px-6 py-2 rounded-full border border-neutral-500 text-xs uppercase tracking-widest text-neutral-200 inline-block"
-          >
-            Download CV
-          </a>
+      {/* Buttons */}
+      <div className="mt-10 flex justify-center gap-4 flex-wrap">
+        <a
+          ref={(el) => void (buttonsRef.current[0] = el)}
+          href="#"
+          className="
+            px-8 py-3 rounded-full border border-white/30 text-white
+            text-xs sm:text-sm font-medium uppercase tracking-[0.2em]
+            backdrop-blur-sm transition-all duration-300
+            hover:border-white hover:bg-white/10 hover:scale-[1.04]
+          "
+        >
+          Download CV
+        </a>
 
-          <a
-            ref={(el) => void (buttonsRef.current[1] = el)}
-            href="#projects"
-            className="px-6 py-2 rounded-full border border-neutral-700 text-xs uppercase tracking-widest text-neutral-400 inline-block"
-          >
-            View Projects
-          </a>
-        </div>
+        <a
+          ref={(el) => void (buttonsRef.current[1] = el)}
+          href="#projects"
+          className="
+            px-8 py-3 rounded-full bg-white text-black
+            text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]
+            shadow-[0_0_28px_rgba(255,255,255,0.4)]
+            transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]
+          "
+        >
+          View Projects
+        </a>
       </div>
+    </div>
 
-      {/* Stats Cards */}
-      <div className="mt-20 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {[
-          {
-            label: "Total Projects",
-            value: "4",
-            desc: "Innovative web & mobile solutions crafted",
-          },
-          {
-            label: "Certificates",
-            value: "3",
-            desc: "Professional skills validated",
-          },
-          {
-            label: "Years of Experience",
-            value: "3",
-            desc: "Continuous learning journey",
-          },
-        ].map((item, index) => (
-          <div
-            key={item.label}
-            ref={(el) => void (cardsRef.current[index] = el)}
-            className="p-6 rounded-xl border border-neutral-800 text-neutral-200"
+    {/* Tabs */}
+    <div className="mt-12 flex justify-center px-4">
+      <div className="inline-flex rounded-full border border-white/30 backdrop-blur-sm p-1 w-full max-w-2xl">
+        {ABOUT_TABS.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setActiveTab(tab)}
+            className={`
+              flex-1 px-4 sm:px-6 py-2 sm:py-3 rounded-full
+              text-[10px] sm:text-[11px] md:text-xs font-medium
+              uppercase tracking-[0.18em] transition-all duration-300
+              ${activeTab === tab
+                ? "bg-white text-black shadow-[0_0_28px_rgba(255,255,255,0.4)]"
+                : "text-white/70 hover:text-white"
+              }
+            `}
           >
-            <div className="text-3xl font-semibold">{item.value}</div>
-            <div className="mt-2 text-sm uppercase tracking-widest text-neutral-400">
-              {item.label}
-            </div>
-            <p className="mt-2 text-sm text-neutral-500">{item.desc}</p>
-          </div>
+            {tab}
+          </button>
         ))}
       </div>
-    </section>
-  );
+    </div>
+
+    {/* Content */}
+    <div ref={contentRef} className="mt-16 max-w-4xl mx-auto">
+      {activeTab === "Experience" && (
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+
+          {EXPERIENCE.map((exp, i) => (
+            <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
+              {/* Dot */}
+              <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+
+              <div
+                className="
+                  p-6 rounded-xl border border-white/10
+                  bg-white/5 backdrop-blur-sm
+                  text-white/90
+                "
+                ref={(el) => void (cardsRef.current[i] = el)}
+              >
+                <h3 className="text-lg sm:text-xl font-medium">{exp.role}</h3>
+                <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide">
+                  {exp.company} • {exp.period}
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-white/80">
+                  {exp.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {activeTab === "Education" && (
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+
+          {EDUCATION.map((edu, i) => (
+            <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
+              {/* Dot */}
+              <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+
+              <div
+                className="
+                  p-6 rounded-xl border border-white/10
+                  bg-white/5 backdrop-blur-sm
+                  text-white/90
+                "
+                ref={(el) => void (cardsRef.current[i] = el)}
+              >
+                <h3 className="text-lg sm:text-xl font-medium">{edu.degree}</h3>
+                <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide">
+                  {edu.institution} • {edu.period}
+                </p>
+                <p className="mt-3 text-sm sm:text-base text-white/80">
+                  {edu.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+);
 }

@@ -1,17 +1,20 @@
-import Navbar from "../components/Navbar";
+"use client";
+
+import StaggeredMenu from "@/components/Navbar"
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import About from "@/components/About";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <div className="relative min-h-screen">
+      <Navbar/>
       <Hero />
-      <About/>
-      <Portfolio/>
+      <About />
+      <Portfolio />
       <Contact />
       <Footer />
     </div>
