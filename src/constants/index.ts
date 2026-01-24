@@ -71,8 +71,8 @@ export const PROJECTS = [
   { title: "Incognito Chat", desc: "Ephemeral private    self-destructive chat rooms." },
   { title: "Market Microstructure", desc: "HFT crypto analytics with AI and market surveillance." },
   { title: "One Flow", desc: "Enterprise HRMS platform" },
-  { title: "Craft Connect", desc: "AI-powered marketplace platform"}
-  { title: "Expense Tracker", desc:"Smart, scalable expense management for growing teams."}
+  { title: "Craft Connect", desc: "AI-powered marketplace platform"},
+  { title: "Expense Tracker", desc:"Smart, scalable expense management for growing teams."},
   { title: "Trendora", desc: "Fashion, reimagined for the internet." },
   { title: "DineEase", desc: "A comprehensive hotel management system built with Django." },
   { title: "GeoMeasurePro", desc: "AI-powered Land Measurement App" },
