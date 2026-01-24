@@ -90,12 +90,39 @@ function Projects() {
             text-white/90 hover:border-white/20 transition-all duration-300 hover:scale-[1.02]
           "
         >
-          <div className="rounded-lg bg-white/10 h-40 mb-4" />
+          {/* Image */}
+          <div className="rounded-lg overflow-hidden h-40 mb-4 bg-white/10">
+            <img
+              src={p.image}
+              alt={p.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Title + Desc */}
           <h3 className="text-lg font-medium">{p.title}</h3>
           <p className="mt-2 text-sm text-white/70">{p.desc}</p>
-          <div className="mt-4 flex justify-between text-[10px] uppercase tracking-widest text-white/60">
-            <span>Live Demo</span>
-            <span>Details →</span>
+
+          {/* Tech Badges */}
+          <div className="mt-3 flex flex-wrap gap-2">
+            {p.tech.map((t) => (
+              <span
+                key={t}
+                className="px-2 py-1 text-[10px] rounded-full bg-white/10 border border-white/20 text-white uppercase tracking-wider"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          {/* Action Links */}
+          <div className="mt-4 flex justify-between text-[11px] uppercase tracking-widest text-white/60">
+            <a href={p.live} target="_blank" rel="noopener noreferrer">
+              Live →
+            </a>
+            <a href={p.repo} target="_blank" rel="noopener noreferrer">
+              GitHub →
+            </a>
           </div>
         </div>
       ))}
@@ -127,14 +154,39 @@ function Certificates() {
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map((c) => (
         <div
-          key={c}
+          key={c.title}
           className="
             p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm
-            text-white/90 flex flex-col items-center text-center transition-all duration-300 hover:border-white/20 hover:scale-[1.02]
+            text-white/90 flex flex-col items-center text-center
+            transition-all duration-300 hover:border-white/20 hover:scale-[1.02]
           "
         >
-          <div className="h-24 w-24 rounded-full bg-white/10 mb-4" />
-          <p className="text-sm font-medium">{c}</p>
+          {/* Thumbnail */}
+          <div className="w-24 h-24 rounded-lg overflow-hidden bg-white/10 mb-4">
+            <img
+              src={c.image}
+              alt={c.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Title */}
+          <p className="text-sm font-medium">{c.title}</p>
+
+          {/* Provider + Year */}
+          <p className="text-xs text-white/60 mt-1">
+            {c.provider} • {c.year}
+          </p>
+
+          {/* Link */}
+          <a
+            href={c.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 text-[11px] uppercase tracking-widest text-white/70 hover:text-white"
+          >
+            View Certificate →
+          </a>
         </div>
       ))}
 
@@ -143,7 +195,8 @@ function Certificates() {
           <button
             onClick={() => setShowMore(!showMore)}
             className="
-              px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]
+              px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm
+              font-semibold uppercase tracking-[0.2em]
               shadow-[0_0_28px_rgba(255,255,255,0.4)]
               transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]
             "
@@ -156,19 +209,27 @@ function Certificates() {
   );
 }
 
+
 function Skills() {
   return (
     <div className="flex justify-center w-full">
-      <div className="grid grid-cols-5 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 place-items-center">
-        {SKILLS.map((skill) => (
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 place-items-center">
+        {SKILLS.map((s) => (
           <div
-            key={skill}
+            key={s.name}
             className="
-              h-14 w-14 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm
+              h-16 w-16 rounded-xl bg-white/5 border border-white/10
+              backdrop-blur-sm flex flex-col justify-center items-center gap-1
             "
-          />
+          >
+            <img src={s.logo} alt={s.name} className="h-8 w-8 object-contain" />
+            <p className="text-[10px] text-white/70 uppercase tracking-wide">
+              {s.name}
+            </p>
+          </div>
         ))}
       </div>
     </div>
   );
 }
+

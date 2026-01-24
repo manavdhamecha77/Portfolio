@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LiquidEther from "./ui/LiquidEther";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
-  // Types: sectionRef → HTMLElement
   const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -55,13 +55,41 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="min-h-screen px-6 md:px-10 py-32 flex items-center justify-center"
+      className="
+        relative min-h-screen px-6 md:px-10 py-32
+        flex items-center justify-center overflow-hidden
+      "
     >
+      {/* Liquid Background */}
+      <div className="absolute inset-0 -z-10">
+        <LiquidEther
+          colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+
+      {/* Content */}
       <div className="w-full max-w-xl">
         {/* Heading */}
         <div className="contact-heading text-center mb-16">
-          <h2 className="text-6xl font-semibold text-white">Contact</h2>
-          <p className="mt-4 text-sm text-white/60">
+          <h2 className="text-5xl sm:text-6xl font-semibold text-white tracking-tight">
+            Contact
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-white/70 leading-relaxed">
             Send me a message — I usually reply within a day.
           </p>
         </div>
@@ -69,14 +97,17 @@ export default function Contact() {
         {/* Card */}
         <div
           className="
-        contact-card rounded-3xl px-8 py-10 backdrop-blur-xl
-        border border-white/10 bg-white/5 shadow-[0_0_50px_rgba(255,255,255,0.04)]
-        space-y-10 transition-all duration-300
-      "
+            contact-card rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl
+            border border-white/10 bg-black/20
+            shadow-[0_0_50px_rgba(0,0,0,0.25)]
+            space-y-10 transition-all duration-300
+          "
         >
           {/* Form */}
           <div>
-            <h3 className="text-lg font-medium text-white">Get in Touch</h3>
+            <h3 className="text-lg sm:text-xl font-medium text-white">
+              Get in Touch
+            </h3>
             <p className="text-sm text-white/60 mt-1">
               Fill the form and I’ll get back to you.
             </p>
@@ -87,11 +118,10 @@ export default function Contact() {
                   type="text"
                   placeholder="Your Name"
                   className="
-                w-full bg-white/5 border border-white/10 text-white
-                rounded-lg px-4 py-3 text-sm outline-none transition-all
-                group-hover:border-white/30
-                focus:border-white focus:bg-white/10
-              "
+                    w-full bg-white/5 border border-white/10 text-white
+                    rounded-lg px-4 py-3 text-sm outline-none transition-all
+                    group-hover:border-white/30 focus:border-white focus:bg-white/10
+                  "
                 />
               </div>
 
@@ -100,11 +130,10 @@ export default function Contact() {
                   type="email"
                   placeholder="Your Email"
                   className="
-                w-full bg-white/5 border border-white/10 text-white
-                rounded-lg px-4 py-3 text-sm outline-none transition-all
-                group-hover:border-white/30
-                focus:border-white focus:bg-white/10
-              "
+                    w-full bg-white/5 border border-white/10 text-white
+                    rounded-lg px-4 py-3 text-sm outline-none transition-all
+                    group-hover:border-white/30 focus:border-white focus:bg-white/10
+                  "
                 />
               </div>
 
@@ -113,30 +142,29 @@ export default function Contact() {
                   rows={4}
                   placeholder="Your Message"
                   className="
-                w-full bg-white/5 border border-white/10 text-white
-                rounded-lg px-4 py-3 text-sm outline-none resize-none transition-all
-                group-hover:border-white/30
-                focus:border-white focus:bg-white/10
-              "
+                    w-full bg-white/5 border border-white/10 text-white
+                    rounded-lg px-4 py-3 text-sm outline-none resize-none transition-all
+                    group-hover:border-white/30 focus:border-white focus:bg-white/10
+                  "
                 />
               </div>
 
               <button
                 type="submit"
                 className="
-              w-full px-8 py-3 rounded-lg
-              bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em]
-              shadow-[0_0_32px_rgba(255,255,255,0.5)]
-              hover:shadow-[0_0_48px_rgba(255,255,255,0.85)]
-              transition-all duration-300 hover:scale-[1.04]
-            "
+                  w-full px-8 py-3 rounded-lg
+                  bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em]
+                  shadow-[0_0_32px_rgba(255,255,255,0.5)]
+                  hover:shadow-[0_0_48px_rgba(255,255,255,0.85)]
+                  transition-all duration-300 hover:scale-[1.04]
+                "
               >
                 Send Message
               </button>
             </form>
           </div>
 
-          {/* Socials */}
+          {/* Social Links */}
           <div className="pt-6 border-t border-white/10">
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
               Socials
@@ -147,11 +175,11 @@ export default function Contact() {
                 <a
                   key={s}
                   className="
-                text-sm px-4 py-2 rounded-full
-                border border-white/10 text-white/80
-                hover:text-white hover:border-white/30
-                transition-all duration-200
-              "
+                    text-sm px-4 py-2 rounded-full
+                    border border-white/10 text-white/80
+                    hover:text-white hover:border-white/30
+                    transition-all duration-200
+                  "
                 >
                   {s}
                 </a>

@@ -92,141 +92,186 @@ export default function About() {
   const contentRef = useRef<HTMLDivElement | null>(null);
 
   return (
-  <section id="about" ref={sectionRef} className="min-h-screen px-6 sm:px-10 py-32">
-    {/* Header */}
-    <div className="max-w-3xl mx-auto text-center">
-      <h2
-        ref={titleRef}
-        className="text-5xl sm:text-6xl font-semibold text-white tracking-tight"
-      >
-        About Me
-      </h2>
+    <section
+      id="about"
+      ref={sectionRef}
+      className="min-h-screen px-6 sm:px-10 py-32"
+    >
+      {/* Header */}
+      <div className="max-w-3xl mx-auto text-center">
+        <h2
+          ref={titleRef}
+          className="text-5xl sm:text-6xl font-semibold text-white tracking-tight"
+        >
+          About Me
+        </h2>
 
-      <p
-        ref={textRef}
-        className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
-      >
-        Hello, I&apos;m Manav Dhamecha — passionate about building smart and
-        scalable web & mobile applications.
-      </p>
+        <p
+          ref={textRef}
+          className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
+        >
+          Hello, I&apos;m Manav Dhamecha — passionate about building smart and
+          scalable web & mobile applications.
+        </p>
 
-      {/* Buttons */}
-      <div className="mt-10 flex justify-center gap-4 flex-wrap">
-        <a
-          ref={(el) => void (buttonsRef.current[0] = el)}
-          href="#"
-          className="
+        {/* Buttons */}
+        <div className="mt-10 flex justify-center gap-4 flex-wrap">
+          <a
+            ref={(el) => void (buttonsRef.current[0] = el)}
+            href="#"
+            className="
             px-8 py-3 rounded-full border border-white/30 text-white
             text-xs sm:text-sm font-medium uppercase tracking-[0.2em]
             backdrop-blur-sm transition-all duration-300
             hover:border-white hover:bg-white/10 hover:scale-[1.04]
           "
-        >
-          Download CV
-        </a>
+          >
+            Download CV
+          </a>
 
-        <a
-          ref={(el) => void (buttonsRef.current[1] = el)}
-          href="#projects"
-          className="
+          <a
+            ref={(el) => void (buttonsRef.current[1] = el)}
+            href="#projects"
+            className="
             px-8 py-3 rounded-full bg-white text-black
             text-xs sm:text-sm font-semibold uppercase tracking-[0.2em]
             shadow-[0_0_28px_rgba(255,255,255,0.4)]
             transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]
           "
-        >
-          View Projects
-        </a>
+          >
+            View Projects
+          </a>
+        </div>
       </div>
-    </div>
 
-    {/* Tabs */}
-    <div className="mt-12 flex justify-center px-4">
-      <div className="inline-flex rounded-full border border-white/30 backdrop-blur-sm p-1 w-full max-w-2xl">
-        {ABOUT_TABS.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`
-              flex-1 px-4 sm:px-6 py-2 sm:py-3 rounded-full
-              text-[10px] sm:text-[11px] md:text-xs font-medium
+      {/* Tabs */}
+      <div className="mt-12 flex justify-center px-4">
+        <div className="inline-flex rounded-full border border-white/30 backdrop-blur-sm p-1 w-full max-w-2xl">
+          {ABOUT_TABS.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`
+              flex-1 px-3 sm:px-6 py-2 sm:py-3 rounded-full
+              text-[9px] sm:text-[11px] md:text-xs font-medium
               uppercase tracking-[0.18em] transition-all duration-300
-              ${activeTab === tab
-                ? "bg-white text-black shadow-[0_0_28px_rgba(255,255,255,0.4)]"
-                : "text-white/70 hover:text-white"
+              ${
+                activeTab === tab
+                  ? "bg-white text-black shadow-[0_0_28px_rgba(255,255,255,0.4)]"
+                  : "text-white/70 hover:text-white"
               }
             `}
-          >
-            {tab}
-          </button>
-        ))}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
 
-    {/* Content */}
-    <div ref={contentRef} className="mt-16 max-w-4xl mx-auto">
-      {activeTab === "Experience" && (
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+      {/* Content */}
+      <div ref={contentRef} className="mt-16 max-w-4xl mx-auto">
+        {activeTab === "Experience" && (
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
 
-          {EXPERIENCE.map((exp, i) => (
-            <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-              {/* Dot */}
-              <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+            {EXPERIENCE.map((exp, i) => (
+              <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
+                {/* Dot */}
+                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
 
-              <div
-                className="
-                  p-6 rounded-xl border border-white/10
-                  bg-white/5 backdrop-blur-sm
-                  text-white/90
-                "
-                ref={(el) => void (cardsRef.current[i] = el)}
-              >
-                <h3 className="text-lg sm:text-xl font-medium">{exp.role}</h3>
-                <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide">
-                  {exp.company} • {exp.period}
-                </p>
-                <p className="mt-3 text-sm sm:text-base text-white/80">
-                  {exp.description}
-                </p>
+                <div
+                  ref={(el) => void (cardsRef.current[i] = el)}
+                  className="
+            p-6 rounded-xl border border-white/10
+            bg-white/5 backdrop-blur-sm
+            text-white/90
+          "
+                >
+                  <h3 className="text-lg sm:text-xl font-medium">
+                    {exp.title}
+                  </h3>
+
+                  <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide flex gap-2">
+                    <span>{exp.company}</span>
+                    <span>•</span>
+                    <span>{exp.type}</span>
+                    <span>•</span>
+                    <span>{exp.location}</span>
+                    <span>•</span>
+                    <span>
+                      {exp.period.start} – {exp.period.end}
+                    </span>
+                  </p>
+
+                  <ul className="mt-4 space-y-3 list-disc list-inside text-sm sm:text-base text-white/80 leading-relaxed">
+                    {exp.bullets.map((b, idx) => (
+                      <li key={idx}>{b}</li>
+                    ))}
+                  </ul>
+
+                  {exp.tech && exp.tech.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {exp.tech.map((t, idx) => (
+                        <span
+                          key={idx}
+                          className="
+                    px-3 py-1 rounded-full text-[10px] sm:text-xs
+                    bg-white/10 border border-white/20 text-white
+                  "
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
 
-      {activeTab === "Education" && (
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+        {activeTab === "Education" && (
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
 
-          {EDUCATION.map((edu, i) => (
-            <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-              {/* Dot */}
-              <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+            {EDUCATION.map((edu, i) => (
+              <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
+                {/* Dot */}
+                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
 
-              <div
-                className="
-                  p-6 rounded-xl border border-white/10
-                  bg-white/5 backdrop-blur-sm
-                  text-white/90
-                "
-                ref={(el) => void (cardsRef.current[i] = el)}
-              >
-                <h3 className="text-lg sm:text-xl font-medium">{edu.degree}</h3>
-                <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide">
-                  {edu.institution} • {edu.period}
-                </p>
-                <p className="mt-3 text-sm sm:text-base text-white/80">
-                  {edu.description}
-                </p>
+                <div
+                  ref={(el) => void (cardsRef.current[i] = el)}
+                  className="
+            p-6 rounded-xl border border-white/10
+            bg-white/5 backdrop-blur-sm
+            text-white/90
+          "
+                >
+                  <h3 className="text-lg sm:text-xl font-medium">
+                    {edu.degree}
+                  </h3>
+
+                  <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide flex gap-2">
+                    <span>{edu.institute}</span>
+                    <span>•</span>
+                    <span>{edu.location}</span>
+                    <span>•</span>
+                    <span>
+                      {edu.period.start} – {edu.period.end}
+                    </span>
+                  </p>
+
+                  <p className="mt-3 text-sm sm:text-base text-white/80">
+                    {edu.grade}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  </section>
-);
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }

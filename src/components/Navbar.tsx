@@ -10,6 +10,13 @@ export default function Navbar() {
   const mobileRef = useRef<HTMLDivElement | null>(null);
   const [open, setOpen] = useState(false);
 
+  const NAV_ITEMS = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Contact", href: "#contact" },
+  ] as const;
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(navRef.current, { y: -40, opacity: 0, duration: 0.8 });
@@ -77,17 +84,17 @@ export default function Navbar() {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.25em] text-white/70">
-          {["Home", "About", "Portfolio", "Contact"].map((item, index) => (
+          {NAV_ITEMS.map((item, index) => (
             <li
-              key={item}
+              key={item.label}
               ref={(el) => void (linksRef.current[index] = el)}
               className="relative group"
             >
               <a
-                href={`#${item.toLowerCase()}`}
+                href={item.href}
                 className="block pb-1 text-white/80 group-hover:text-white"
               >
-                {item}
+                {item.label}
               </a>
               <span className="absolute left-0 -bottom-[2px] w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300" />
             </li>
@@ -108,23 +115,24 @@ export default function Navbar() {
       <div
         ref={mobileRef}
         className={`
-      md:hidden px-6 pb-6 pt-4 flex flex-col gap-3
-      backdrop-blur-xl bg-white/5 border-t border-white/10 transition-all
-      ${open ? "block" : "hidden"}
-    `}
+    md:hidden px-6 pb-6 pt-4 flex flex-col gap-3 items-center
+    backdrop-blur-xl bg-white/5 border-t border-white/10 transition-all
+    ${open ? "block" : "hidden"}
+  `}
       >
-        {["Home", "About", "Portfolio", "Contact"].map((item) => (
-          <button
-            key={item}
+        {NAV_ITEMS.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
             onClick={() => setOpen(false)}
             className="
-          w-full py-2 rounded-full text-xs uppercase tracking-[0.25em]
-          text-white/80 hover:text-white hover:bg-white/10
-          transition
-        "
+        w-max px-6 py-2 rounded-full text-xs uppercase tracking-[0.25em]
+        text-white/80 hover:text-white hover:bg-white/10 transition
+        text-center
+      "
           >
-            {item}
-          </button>
+            {item.label}
+          </a>
         ))}
       </div>
     </nav>

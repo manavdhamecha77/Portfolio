@@ -64,9 +64,20 @@ export default function Hero() {
         ref={(el) => void (contentRef.current[0] = el)}
         className="max-w-3xl tracking-tight"
       >
+        <h1
+          ref={(el) => void (contentRef.current[0] = el)}
+          className="
+    text-5xl sm:text-7xl
+    font-bold leading-tight text-white
+    mb-2
+  "
+        >
+          Manav Dhamecha
+        </h1>
+
         <TextType
           className="
-        text-4xl sm:text-7xl font-medium
+        text-4xl sm:text-6xl font-medium
         leading-[1.08] text-white
       "
           text={["Full Stack Developer", "ML Enthusiast"]}
