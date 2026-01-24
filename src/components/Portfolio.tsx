@@ -159,7 +159,7 @@ function Certificates() {
 function Skills() {
   return (
     <div className="flex justify-center w-full">
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 place-items-center">
+      <div className="grid grid-cols-5 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 place-items-center">
         {SKILLS.map((skill) => (
           <div
             key={skill}
