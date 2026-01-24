@@ -84,10 +84,11 @@ export const EXPERIENCE = [
   role: "Software Engineer Intern",
   company: "Fastrac",
   period: "May 2025 – July 2025",
-  description: 
-    "> Developed a production-ready WooCommerce shipping plugin with multi-delivery support and real-time rate calculations.
-    > Automated shipment creation, tracking, and cancellations via integration with 3+ external APIs, eliminating manual operational steps.
-    > Improved operational efficiency through bulk actions, rate comparison, and caching, reducing checkout latency and admin handling time."
+  description: `
+> Developed a production-ready WooCommerce shipping plugin with multi-delivery support and real-time rate calculations.
+> Automated shipment creation, tracking, and cancellations via integration with 3+ external APIs, eliminating manual operational steps.
+> Improved operational efficiency through bulk actions, rate comparison, and caching, reducing checkout latency and admin handling time.
+`
 },
 ] as const;
 
