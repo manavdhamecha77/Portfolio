@@ -9,68 +9,105 @@ export type AboutTab = (typeof ABOUT_TABS)[number];
 
 
 export const SKILLS = [
+  // ⭐ Core Web + Full-Stack
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "NextJS",
+  "Tailwind CSS",
+  "Prisma",
+  "Supabase",
+  "Firebase",
+  "PostgreSQL",
+  "MySQL",
+  "Redis",
+  "Tanstack Query",
+  "Docker",
+  "Vercel",
+  "Elysia.js",
+
+  // ⭐ UI / Product / Animation
+  "Shadcn UI",
+  "GSAP",
+  "Figma",
+  "WordPress",
+
+  // ⭐ Data + ML Foundations
+  "Python",
+  "Numpy",
+  "Pandas",
+  "Matplotlib",
+  "Seaborn",
+  "Jupyter Notebooks",
+
+  // ⭐ Developer Tools + Platforms
+  "Git",
+  "GitHub",
+  "VSCode",
+  "Notion",
+  "Neon db",
+  "Linux",
+  "Windows",
+
+  // ⭐ Languages + Low-Signal
   "HTML",
   "CSS",
-  "JavaScript",
-  "Tailwind CSS",
-  "Express JS",
-  "Node JS",
-  "React",
-  "MongoDB",
   "JWT",
-  "PostgreSQL",
-  "TypeScript",
-  "Docker",
+  "Latex",
+  "C",
+  "C++",
+  "PHP"
 ] as const;
 
+
 export const CERTIFICATES = [
-  "Full Stack Dev",
-  "Cloud Basics",
-  "AI Foundations"
+  "Web Wonders 3.0 Winner",
+  "Python Essentials",
+  "Introduction to Cybersecurity",
+  "AI for Beginners",
 ] as const;
 
 export const PROJECTS = [
-  { title: "IntervueAI", desc: "Real-time mock interviews with AI." },
-  { title: "Blendy", desc: "A social app for real-time connection." },
-  { title: "WATCHit", desc: "Personalized video streaming platform." },
-  { title: "Incognito Chat", desc: "Ephemeral private chat rooms." },
-  { title: "DevTrack", desc: "Developer productivity tracker." },
-  { title: "AI Resume Analyzer", desc: "AI-powered resume insights." },
+  { title: "Incognito Chat", desc: "Ephemeral private    self-destructive chat rooms." },
+  { title: "Market Microstructure", desc: "HFT crypto analytics with AI and market surveillance." },
+  { title: "One Flow", desc: "Enterprise HRMS platform" },
+  { title: "Craft Connect", desc: "AI-powered marketplace platform"}
+  { title: "Expense Tracker", desc:"Smart, scalable expense management for growing teams."}
+  { title: "Trendora", desc: "Fashion, reimagined for the internet." },
+  { title: "DineEase", desc: "A comprehensive hotel management system built with Django." },
+  { title: "GeoMeasurePro", desc: "AI-powered Land Measurement App" },
 ] as const;
 
 
 export const EXPERIENCE = [
-  {
-    role: "Full Stack Developer",
-    company: "Tech Corp",
-    period: "2023 - Present",
-    description: "Building scalable web applications with React and Node.js"
-  },
-  {
-    role: "Software Engineer Intern",
-    company: "StartupXYZ",
-    period: "2022 - 2023",
-    description: "Developed features for mobile-first e-commerce platform"
-  },
-  {
-    role: "Freelance Developer",
-    company: "Self-employed",
-    period: "2021 - 2022",
-    description: "Created custom web solutions for local businesses"
-  },
+ {
+  role: "Software Engineer Intern",
+  company: "Fastrac",
+  period: "May 2025 – July 2025",
+  description: 
+    "> Developed a production-ready WooCommerce shipping plugin with multi-delivery support and real-time rate calculations.
+    > Automated shipment creation, tracking, and cancellations via integration with 3+ external APIs, eliminating manual operational steps.
+    > Improved operational efficiency through bulk actions, rate comparison, and caching, reducing checkout latency and admin handling time."
+},
 ] as const;
 
 export const EDUCATION = [
   {
     degree: "B.Tech in Artificial Intelligence",
-    institution: "University Name",
-    period: "2020 - 2024",
-    description: "Specialized in Machine Learning and Deep Learning"
+    institution: "Sardar Vallabhbhai National Institute of Technology, Surat",
+    period: "2024 - 2028",
+    description: "CGPA: 8.57"
   },
   {
-    degree: "Higher Secondary Education",
-    institution: "School Name",
-    period: "2018 - 2020",
-    description: "Science stream with focus on Mathematics and Computer Science"
+    degree: "Higher Secondary Education (CBSE)",
+    institution: "L.P. Savani International School, Pal",
+    period: "2022 - 2024",
+    description: "Marks: 94.8% (XII Boards)"
+  },
+{
+    degree: "Secondary Education (CBSE)",
+    institution: "L.P. Savani International School, Pal",
+    period: "2020 - 2022",
+    description: "Marks: 95% (X Boards)"
   },
 ] as const;
