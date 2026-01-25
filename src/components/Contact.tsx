@@ -55,12 +55,8 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="
-        relative min-h-screen px-6 md:px-10 py-32
-        flex items-center justify-center overflow-hidden
-      "
+      className="relative min-h-screen px-6 md:px-10 py-32 flex items-center justify-center overflow-hidden"
     >
-      {/* Liquid Background */}
       <div className="absolute inset-0 -z-10">
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
@@ -82,9 +78,7 @@ export default function Contact() {
         />
       </div>
 
-      {/* Content */}
       <div className="w-full max-w-xl">
-        {/* Heading */}
         <div className="contact-heading text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-semibold text-white tracking-tight">
             Contact
@@ -94,16 +88,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Card */}
-        <div
-          className="
-            contact-card rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl
-            border border-white/10 bg-black/20
-            shadow-[0_0_50px_rgba(0,0,0,0.25)]
-            space-y-10 transition-all duration-300
-          "
-        >
-          {/* Form */}
+        <div className="contact-card rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-white/10 bg-black/20 shadow-[0_0_50px_rgba(0,0,0,0.25)] space-y-10 transition-all duration-300">
           <div>
             <h3 className="text-lg sm:text-xl font-medium text-white">
               Get in Touch
@@ -117,11 +102,7 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="
-                    w-full bg-white/5 border border-white/10 text-white
-                    rounded-lg px-4 py-3 text-sm outline-none transition-all
-                    group-hover:border-white/30 focus:border-white focus:bg-white/10
-                  "
+                  className="w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 text-sm outline-none transition-all group-hover:border-white/30 focus:border-white focus:bg-white/10"
                 />
               </div>
 
@@ -129,11 +110,7 @@ export default function Contact() {
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="
-                    w-full bg-white/5 border border-white/10 text-white
-                    rounded-lg px-4 py-3 text-sm outline-none transition-all
-                    group-hover:border-white/30 focus:border-white focus:bg-white/10
-                  "
+                  className="w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 text-sm outline-none transition-all group-hover:border-white/30 focus:border-white focus:bg-white/10"
                 />
               </div>
 
@@ -141,30 +118,19 @@ export default function Contact() {
                 <textarea
                   rows={4}
                   placeholder="Your Message"
-                  className="
-                    w-full bg-white/5 border border-white/10 text-white
-                    rounded-lg px-4 py-3 text-sm outline-none resize-none transition-all
-                    group-hover:border-white/30 focus:border-white focus:bg-white/10
-                  "
+                  className="w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 text-sm outline-none resize-none transition-all group-hover:border-white/30 focus:border-white focus:bg-white/10"
                 />
               </div>
 
               <button
                 type="submit"
-                className="
-                  w-full px-8 py-3 rounded-lg
-                  bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em]
-                  shadow-[0_0_32px_rgba(255,255,255,0.5)]
-                  hover:shadow-[0_0_48px_rgba(255,255,255,0.85)]
-                  transition-all duration-300 hover:scale-[1.04]
-                "
+                className="w-full px-8 py-3 rounded-lg bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] shadow-[0_0_32px_rgba(255,255,255,0.5)] hover:shadow-[0_0_48px_rgba(255,255,255,0.85)] transition-all duration-300 hover:scale-[1.04]"
               >
                 Send Message
               </button>
             </form>
           </div>
 
-          {/* Social Links */}
           <div className="pt-6 border-t border-white/10">
             <p className="text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
               Socials
@@ -174,12 +140,7 @@ export default function Contact() {
               {["LinkedIn", "Instagram", "GitHub"].map((s) => (
                 <a
                   key={s}
-                  className="
-                    text-sm px-4 py-2 rounded-full
-                    border border-white/10 text-white/80
-                    hover:text-white hover:border-white/30
-                    transition-all duration-200
-                  "
+                  className="text-sm px-4 py-2 rounded-full border border-white/10 text-white/80 hover:text-white hover:border-white/30 transition-all duration-200"
                 >
                   {s}
                 </a>

@@ -63,26 +63,17 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="
-    fixed top-0 left-0 w-full z-50
-    backdrop-blur-xl bg-white/5 border-b border-white/10
-  "
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/5 border-b border-white/10"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-        {/* Logo */}
         <a
           ref={logoRef}
           href="#home"
-          className="
-        text-sm font-semibold tracking-[0.25em] uppercase
-        text-white
-        will-change-transform
-      "
+          className="text-sm font-semibold tracking-[0.25em] uppercase text-white will-change-transform"
         >
           Manav
         </a>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.25em] text-white/70">
           {NAV_ITEMS.map((item, index) => (
             <li
@@ -101,7 +92,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Hamburger */}
         <button
           onClick={() => setOpen((o) => !o)}
           className="md:hidden text-white/90 text-xl"
@@ -111,25 +101,16 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         ref={mobileRef}
-        className={`
-    md:hidden px-6 pb-6 pt-4 flex flex-col gap-3 items-center
-    backdrop-blur-xl bg-white/5 border-t border-white/10 transition-all
-    ${open ? "block" : "hidden"}
-  `}
+        className={`md:hidden px-6 pb-6 pt-4 flex flex-col gap-3 items-center backdrop-blur-xl bg-white/5 border-t border-white/10 transition-all ${open ? "block" : "hidden"}`}
       >
         {NAV_ITEMS.map((item) => (
           <a
             key={item.label}
             href={item.href}
             onClick={() => setOpen(false)}
-            className="
-        w-max px-6 py-2 rounded-full text-xs uppercase tracking-[0.25em]
-        text-white/80 hover:text-white hover:bg-white/10 transition
-        text-center
-      "
+            className=" w-max px-6 py-2 rounded-full text-xs uppercase tracking-[0.25em] text-white/80 hover:text-white hover:bg-white/10 transition text-center"
           >
             {item.label}
           </a>

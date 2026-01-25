@@ -23,8 +23,8 @@ export const SKILLS = [
   { name: "Vercel", logo: "/skills/vercel.svg", category: "core" },
   { name: "Elysia.js", logo: "/skills/elysia.svg", category: "core" },
 
-  { name: "Shadcn UI", logo: "/skills/shadcn.svg", category: "ui" },
-  { name: "GSAP", logo: "/skills/gsap.svg", category: "ui" },
+  { name: "Woo Commerce", logo: "/skills/woocommerce.svg", category: "ui" },
+  { name: "Notion", logo: "/skills/notion.svg", category: "ui" },
   { name: "Figma", logo: "/skills/figma.svg", category: "ui" },
   { name: "WordPress", logo: "/skills/wordpress.svg", category: "ui" },
 
@@ -32,20 +32,20 @@ export const SKILLS = [
   { name: "Numpy", logo: "/skills/numpy.svg", category: "ml" },
   { name: "Pandas", logo: "/skills/pandas.svg", category: "ml" },
   { name: "Matplotlib", logo: "/skills/matplotlib.svg", category: "ml" },
-  { name: "Seaborn", logo: "/skills/seaborn.svg", category: "ml" },
+  { name: "Tensorflow", logo: "/skills/tensorflow.svg", category: "ml" },
   { name: "Jupyter Notebooks", logo: "/skills/jupyter.svg", category: "ml" },
 
   { name: "Git", logo: "/skills/git.svg", category: "tools" },
   { name: "GitHub", logo: "/skills/github.svg", category: "tools" },
   { name: "VSCode", logo: "/skills/vscode.svg", category: "tools" },
-  { name: "Notion", logo: "/skills/notion.svg", category: "tools" },
-  { name: "Neon db", logo: "/skills/neon.svg", category: "tools" },
+  { name: "Postman", logo: "/skills/postman.svg", category: "tools" },
+  { name: "Npm", logo: "/skills/npm.svg", category: "tools" },
   { name: "Linux", logo: "/skills/linux.svg", category: "tools" },
   { name: "Windows", logo: "/skills/windows.svg", category: "tools" },
 
   { name: "HTML", logo: "/skills/html.svg", category: "misc" },
   { name: "CSS", logo: "/skills/css.svg", category: "misc" },
-  { name: "JWT", logo: "/skills/jwt.svg", category: "misc" },
+  { name: "Bash", logo: "/skills/bash.svg", category: "misc" },
   { name: "Latex", logo: "/skills/latex.svg", category: "misc" },
   { name: "C", logo: "/skills/c.svg", category: "misc" },
   { name: "C++", logo: "/skills/cpp.svg", category: "misc" },
@@ -143,14 +143,6 @@ export const PROJECTS = [
     repo: "https://github.com/youruser/dineease",
     tech: ["Python", "Django", "SQLite"],
   },
-  {
-    title: "GeoMeasurePro",
-    desc: "AI-powered land measurement mobile application.",
-    image: "/projects/geo-measure-pro.png",
-    live: "https://your-live-link.com",
-    repo: "https://github.com/youruser/geo-measure-pro",
-    tech: ["Python", "OpenCV", "Android"],
-  },
 ] as const;
 
 export const EXPERIENCE = [
@@ -184,23 +176,23 @@ export const EDUCATION = [
     grade: "CGPA: 8.57",
   },
   {
-    degree: "Higher Secondary Education (CBSE)",
+    degree: "HSC (Class 12) - PCM",
     institute: "L.P. Savani International School",
     location: "Surat, India",
     period: {
-      start: "2022",
+      start: "2023",
       end: "2024",
     },
-    grade: "94.8% (XII)",
+    grade: "Percentage: 94.8% (CBSE)",
   },
   {
-    degree: "Secondary Education (CBSE)",
+    degree: "SSC (Class 10)",
     institute: "L.P. Savani International School",
     location: "Surat, India",
     period: {
-      start: "2020",
+      start: "2021",
       end: "2022",
     },
-    grade: "95% (X)",
+    grade: "Percentage: 95% (CBSE)",
   },
 ] as const;

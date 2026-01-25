@@ -50,7 +50,6 @@ export default function Hero() {
       ref={heroRef}
       className="relative min-h-screen flex items-center px-6 sm:px-10 py-20 overflow-hidden"
     >
-      {/* Aurora */}
       <div className="absolute inset-0 -z-10">
         <Aurora
           colorStops={["#7cff67", "#B19EEF", "#5227FF"]}
@@ -66,20 +65,13 @@ export default function Hero() {
       >
         <h1
           ref={(el) => void (contentRef.current[0] = el)}
-          className="
-    text-5xl sm:text-7xl
-    font-bold leading-tight text-white
-    mb-2
-  "
+          className="text-5xl sm:text-7xl font-bold leading-tight text-white mb-2"
         >
           Manav Dhamecha
         </h1>
 
         <TextType
-          className="
-        text-4xl sm:text-6xl font-medium
-        leading-[1.08] text-white
-      "
+          className=" text-4xl sm:text-6xl font-medium leading-[1.08] text-white"
           text={["Full Stack Developer", "ML Enthusiast"]}
           typingSpeed={75}
           deletingSpeed={50}
@@ -91,20 +83,14 @@ export default function Hero() {
 
         <h2
           ref={(el) => void (contentRef.current[1] = el)}
-          className="
-        mt-3 text-[10px] sm:text-xs uppercase
-        tracking-[0.25em] text-white/70
-      "
+          className="mt-3 text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/70"
         >
           B.Tech — Artificial Intelligence
         </h2>
 
         <p
           ref={(el) => void (contentRef.current[2] = el)}
-          className="
-        mt-6 max-w-xl text-white/80
-        text-base sm:text-lg leading-relaxed
-      "
+          className=" mt-6 max-w-xl text-white/80 text-base sm:text-lg leading-relaxed"
         >
           Enhancing digital experiences that are smooth, scalable, and built for
           impact.
@@ -114,15 +100,7 @@ export default function Hero() {
           <a
             ref={(el) => void (buttonsRef.current[0] = el)}
             href="#portfolio"
-            className="
-          px-8 py-3 rounded-full
-          bg-white text-black
-          text-xs sm:text-sm font-semibold uppercase tracking-[0.25em]
-          shadow-[0_0_28px_rgba(255,255,255,0.35)]
-          transition-transform duration-300
-          hover:shadow-[0_0_40px_rgba(255,255,255,0.7)]
-          hover:scale-[1.04]
-        "
+            className=" px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] shadow-[0_0_28px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.7)] hover:scale-[1.04]"
           >
             View Work
           </a>
@@ -130,14 +108,7 @@ export default function Hero() {
           <a
             ref={(el) => void (buttonsRef.current[1] = el)}
             href="#contact"
-            className="
-          px-8 py-3 rounded-full
-          border border-white/30 text-white
-          text-xs sm:text-sm font-medium uppercase tracking-[0.25em]
-          backdrop-blur-sm
-          transition-all duration-300
-          hover:border-white hover:bg-white/10 hover:scale-[1.04]
-        "
+            className=" px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-medium uppercase tracking-[0.25em] backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 hover:scale-[1.04]"
           >
             Contact
           </a>

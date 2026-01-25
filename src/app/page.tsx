@@ -1,6 +1,5 @@
 "use client";
 
-import StaggeredMenu from "@/components/Navbar"
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
@@ -12,11 +11,11 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Navbar/>
-      <Hero />
-      <About />
-      <Portfolio />
-      <Contact />
-      <Footer />
+      <Hero/>
+      <About/>
+      <Portfolio/>
+      <Contact/>
+      <Footer/>
     </div>
   );
 }
