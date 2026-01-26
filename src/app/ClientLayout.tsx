@@ -49,7 +49,7 @@ export default function ClientLayout({
   useEffect(() => {
     const t = setTimeout(() => {
       setReady(true);
-    }, 5000);
+    }, 1200);
 
     return () => clearTimeout(t);
   }, []);
