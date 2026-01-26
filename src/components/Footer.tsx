@@ -33,7 +33,6 @@ export default function Footer() {
       className="py-20 px-10 text-center max-w-6xl mx-auto"
     >
       <div className="footer-content space-y-6">
-        {/* Social Icons */}
         <div className="flex justify-center gap-6">
           <a
             href="https://github.com/manavdhamecha77"
@@ -64,7 +63,6 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Footer Text */}
         <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-white/50">
           © {new Date().getFullYear()} Manav Dhamecha — All Rights Reserved
         </p>

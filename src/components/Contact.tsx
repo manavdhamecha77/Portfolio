@@ -15,8 +15,7 @@ export default function Contact() {
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const isMobile =
-    typeof window !== "undefined" && window.innerWidth < 768;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -26,10 +25,10 @@ export default function Contact() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); 
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(el);
@@ -42,7 +41,6 @@ export default function Contact() {
       ref={sectionRef}
       className="relative min-h-screen px-6 md:px-10 py-32 flex items-center justify-center overflow-hidden"
     >
-      {/* ---------- Background (lazy + gated) ---------- */}
       {visible && !prefersReducedMotion && !isMobile && (
         <div className="absolute inset-0 -z-10">
           <LiquidEther
@@ -69,10 +67,10 @@ export default function Contact() {
       >
         <header className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl font-semibold text-white">
-            Contact
+            Contact Me
           </h2>
           <p className="mt-4 text-sm sm:text-base text-white/70">
-            Send me a message
+            Send me a message, I usually relpy within a day.
           </p>
         </header>
 
@@ -94,8 +92,6 @@ export default function Contact() {
     </section>
   );
 }
-
-
 
 function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (

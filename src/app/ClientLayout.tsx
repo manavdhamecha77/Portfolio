@@ -2,19 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-import TextType from "@/components/ui/TextType"; // make sure the path is correct
+import TextType from "@/components/ui/TextType"; 
 
 function Loader() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black text-white">
-      {/* Small Welcome text */}
       <p className="text-xs uppercase tracking-[0.3em] text-white/60 mb-4">
         Welcome
       </p>
 
-      {/* Animated greetings */}
       <TextType
-        text={["नमस्ते", "Hello", "こんにちは", "Bonjour", "Hola", "안녕하세요"]}
+        text={["नमस्ते", "Hello", "こんにちは"]}
         as="h1"
         typingSpeed={80}
         deletingSpeed={40}
@@ -25,12 +23,10 @@ function Loader() {
         className="text-5xl sm:text-7xl font-semibold tracking-tight text-white"
       />
 
-      {/* Optional subtitle */}
       <p className="mt-4 text-sm text-white/50">
         Preparing your experience...
       </p>
 
-      {/* Progress bar */}
       <div className="mt-10 h-[2px] w-32 bg-white/10 overflow-hidden relative">
         <div className="absolute h-full w-1/3 bg-white animate-loader-bar" />
       </div>

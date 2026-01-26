@@ -56,8 +56,6 @@ export default function Portfolio() {
   );
 }
 
-/* ---------------- Projects ---------------- */
-
 const Projects = memo(function Projects() {
   const [showMore, setShowMore] = useState(false);
   const visible = showMore ? PROJECTS : PROJECTS.slice(0, 6);
@@ -120,7 +118,6 @@ const Projects = memo(function Projects() {
   );
 });
 
-/* ---------------- Certificates ---------------- */
 
 const Certificates = memo(function Certificates() {
   const [showMore, setShowMore] = useState(false);
@@ -173,7 +170,6 @@ const Certificates = memo(function Certificates() {
   );
 });
 
-/* ---------------- Skills ---------------- */
 const Skills = memo(function Skills() {
   const [showMore, setShowMore] = useState(false);
   const isMobile = typeof window !== "undefined" && window.innerWidth < 640;

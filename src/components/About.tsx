@@ -109,8 +109,7 @@ export default function About() {
           ref={textRef}
           className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
         >
-          Hello, I&apos;m Manav Dhamecha — passionate about building smart and
-          scalable web & mobile applications.
+          Hello, I&apos;m Manav Dhamecha, a second year B.Tech student in Artificial Intelligence at NIT Surat, passionate about building scalable software, AI-driven applications, and full-stack solutions. I enjoy exploring new technologies and apply them to solve real-world problems or create engaging projects. Open to learning, collaboration, and opportunities in SDE, Full-Stack, and AI domains. 
         </p>
 
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
@@ -153,7 +152,6 @@ export default function About() {
 
             {EXPERIENCE.map((exp, i) => (
               <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-                {/* Dot */}
                 <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
 
                 <div

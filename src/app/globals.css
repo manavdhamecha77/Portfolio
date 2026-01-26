@@ -88,3 +88,16 @@ nav a {
   animation: bounce 1.4s infinite ease-in-out;
   animation-delay: 0.4s;
 }
+
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}

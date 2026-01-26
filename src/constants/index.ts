@@ -161,7 +161,7 @@ export const EDUCATION = [
     grade: "CGPA: 8.57",
   },
   {
-    degree: "HSC (Class 12) - PCM",
+    degree: "HSC (Grade 12) - PCM",
     institute: "L.P. Savani International School",
     location: "Surat, India",
     period: {
@@ -171,7 +171,7 @@ export const EDUCATION = [
     grade: "Percentage: 94.8% (CBSE)",
   },
   {
-    degree: "SSC (Class 10)",
+    degree: "SSC (Grade 10)",
     institute: "L.P. Savani International School",
     location: "Surat, India",
     period: {

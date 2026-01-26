@@ -20,7 +20,6 @@ export default function Hero() {
         },
       });
 
-      // Set initial state explicitly
       gsap.set(contentRef.current.filter(Boolean), { y: 30, opacity: 0 });
       gsap.set(buttonsRef.current.filter(Boolean), { y: 10, opacity: 0 });
 
@@ -65,14 +64,14 @@ export default function Hero() {
       >
         <h1
           ref={(el) => void (contentRef.current[0] = el)}
-          className="text-5xl sm:text-7xl font-bold leading-tight text-white mb-2"
+          className="text-6xl sm:text-7xl font-bold leading-tight text-white mb-2"
         >
           Manav Dhamecha
         </h1>
 
         <TextType
-          className=" text-4xl sm:text-6xl font-medium leading-[1.08] text-white"
-          text={["Full Stack Developer", "ML Enthusiast"]}
+          className=" text-3xl py-3 sm:text-6xl font-medium leading-[1.08] text-white"
+          text={["Full Stack Developer", "Frontend Developer", "Backend Developer", "ML Enthusiast"]}
           typingSpeed={75}
           deletingSpeed={50}
           pauseDuration={1500}
