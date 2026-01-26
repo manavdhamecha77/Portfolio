@@ -34,3 +34,57 @@ nav a {
   opacity: .7;
   transform: translateY(-2px);
 }
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.35s ease-out;
+}
+
+@keyframes loaderBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-loader-bar {
+  animation: loaderBar 1.2s ease-in-out infinite;
+}
+
+/* Hide scrollbar but keep scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* Bouncing dots with delay */
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+.animate-bounce-delay1 {
+  animation: bounce 1.4s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+.animate-bounce-delay2 {
+  animation: bounce 1.4s infinite ease-in-out;
+  animation-delay: 0.2s;
+}
+
+.animate-bounce-delay3 {
+  animation: bounce 1.4s infinite ease-in-out;
+  animation-delay: 0.4s;
+}
