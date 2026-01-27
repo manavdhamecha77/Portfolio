@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -20,12 +21,17 @@ export default function About() {
   // For cards: use HTMLDivElement | null
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  const setButtonRef = (index: number) => (el: HTMLAnchorElement | null) => {
+    buttonsRef.current[index] = el;
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
+          once: true,
         },
         defaults: {
           ease: "power3.out",
@@ -49,9 +55,11 @@ export default function About() {
           buttonsRef.current.filter(Boolean), // null-safe
           {
             y: 10,
+            autoAlpha: 0,
             opacity: 0,
             stagger: 0.15,
             duration: 0.6,
+            immediateRender: false,
           },
           "-=0.3",
         )
@@ -70,7 +78,7 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = contentRef.current;
     if (!container) return;
 
@@ -109,22 +117,28 @@ export default function About() {
           ref={textRef}
           className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
         >
-          Hello, I&apos;m Manav Dhamecha, a second year B.Tech student in Artificial Intelligence at NIT Surat, passionate about building scalable software, AI-driven applications, and full-stack solutions. I enjoy exploring new technologies and apply them to solve real-world problems or create engaging projects. Open to learning, collaboration, and opportunities in SDE, Full-Stack, and AI domains. 
+          Hello, I&apos;m Manav Dhamecha, a second year B.Tech student in
+          Artificial Intelligence at NIT Surat, passionate about building
+          scalable software, AI-driven applications, and full-stack solutions. I
+          enjoy exploring new technologies and apply them to solve real-world
+          problems or create engaging projects. Open to learning, collaboration,
+          and opportunities in SDE, Full-Stack, and AI domains.
         </p>
 
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
           <a
-            ref={(el) => void (buttonsRef.current[0] = el)}
-            href="#"
-            className=" px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-medium uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 hover:scale-[1.04]"
+            ref={setButtonRef(0)}
+            href="https://drive.google.com/file/d/13X9x03ZNjr5MdxiygnlVSXdFd2O8F5uL/view?usp=drive_link"
+            download
+            className="px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-medium uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 hover:scale-[1.04]"
           >
             Download CV
           </a>
 
           <a
-            ref={(el) => void (buttonsRef.current[1] = el)}
-            href="#projects"
-            className=" px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]"
+            ref={setButtonRef(1)}
+            href="#portfolio"
+            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]"
           >
             View Projects
           </a>
