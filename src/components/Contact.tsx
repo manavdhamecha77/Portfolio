@@ -11,6 +11,42 @@ export default function Contact() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("Message sent successfully ✅");
+        setName("");
+        setEmail("");
+        setMessage("");
+      } else {
+        setStatus("Failed to send message ❌");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("Error sending message ❌");
+    }
+
+    setLoading(false);
+  };
+
   const prefersReducedMotion =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -75,17 +111,32 @@ export default function Contact() {
         </header>
 
         <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-white/10 bg-black/20 shadow-[0_0_50px_rgba(0,0,0,0.25)] space-y-8">
-          <form className="space-y-6">
-            <Input placeholder="Your Name" />
-            <Input placeholder="Your Email" type="email" />
-            <Textarea placeholder="Your Message" />
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <Input
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              placeholder="Your Email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Textarea
+              placeholder="Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full px-8 py-3 rounded-lg bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] transition-transform duration-300 hover:scale-[1.04]"
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+            {status && <p className="text-sm mt-2 text-white text-center">{status}</p>}
           </form>
         </div>
       </div>
