@@ -115,7 +115,7 @@ export default function About() {
 
         <p
           ref={textRef}
-          className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-left max-w-2xl mx-auto"
+          className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-justify max-w-2xl mx-auto"
         >
           Hello, I&apos;m Manav Dhamecha, a second year B.Tech student in
           Artificial Intelligence at NIT Surat, passionate about building
