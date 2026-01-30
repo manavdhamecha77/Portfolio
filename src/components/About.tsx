@@ -220,10 +220,18 @@ export default function About() {
 
                 <div
                   ref={(el) => void (cardsRef.current[i] = el)}
-                  className=" p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90"
+                  className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90"
                 >
                   <h3 className="text-lg sm:text-xl font-medium">
                     {edu.degree}
+                    {edu.class && (
+                      <>
+                        <br />
+                        <span className="text-sm text-white/70">
+                          {edu.class}
+                        </span>
+                      </>
+                    )}
                   </h3>
 
                   <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap gap-2">
@@ -237,6 +245,7 @@ export default function About() {
 
                   <p className="mt-3 text-sm sm:text-base text-white/80">
                     {edu.grade}
+                    {edu.board && ` • ${edu.board}`}
                   </p>
                 </div>
               </div>
