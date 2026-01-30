@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, memo, useMemo, useCallback } from "react";
+import { useRef, useState, memo, useMemo } from "react";
 import Image from "next/image";
 import {
   PORTFOLIO_TABS,
@@ -33,12 +33,12 @@ export default function Portfolio() {
 
       {/* Tabs */}
       <div className="mt-12 flex justify-center px-3">
-        <div className="flex w-full max-w-2xl rounded-full border border-white/30 p-1 overflow-hidden bg-black/20">
+        <div className="flex w-full max-w-2xl rounded-full border border-white/30 backdrop-blur-sm p-1 overflow-hidden">
           {PORTFOLIO_TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[9px] sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.18em] transition-colors duration-200 text-center ${activeTab === tab ? "bg-white text-black" : "text-white/70"}`}
+              className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[9px] sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.18em] transition-all duration-300 text-center ${activeTab === tab ? "bg-white text-black shadow-[0_0_24px_rgba(255,255,255,0.4)]" : "text-white/70 hover:text-white"}`}
             >
               <span className="block truncate">{tab}</span>
             </button>
@@ -46,7 +46,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Content */}
+      {/* Content - Remove key prop and animation */}
       <div className="mt-16">
         {activeTab === "projects" && <Projects />}
         {activeTab === "certificates" && <Certificates />}
@@ -59,16 +59,13 @@ export default function Portfolio() {
 const Projects = memo(function Projects() {
   const [showMore, setShowMore] = useState(false);
   const initialVisibleCount = 4;
-  const hasMore = PROJECTS.length > 6;
+  const hasMore = PROJECTS.length > initialVisibleCount;
 
+  // Memoize visible projects
   const visible = useMemo(
     () => (showMore ? PROJECTS : PROJECTS.slice(0, 6)),
     [showMore]
   );
-
-  const handleToggle = useCallback(() => {
-    setShowMore((prev) => !prev);
-  }, []);
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -76,15 +73,15 @@ const Projects = memo(function Projects() {
         <ProjectCard
           key={p.title}
           project={p}
-          hidden={!showMore && i >= initialVisibleCount}
+          hidden={!showMore && i >= 4}
         />
       ))}
 
       {hasMore && (
         <div className="col-span-full flex justify-center mt-10">
           <button
-            onClick={handleToggle}
-            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] transition-transform duration-200 active:scale-95"
+            onClick={() => setShowMore(!showMore)}
+            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.05]"
           >
             {showMore ? "Show Less" : "Show More"}
           </button>
@@ -94,6 +91,7 @@ const Projects = memo(function Projects() {
   );
 });
 
+// Separate ProjectCard component for better performance
 const ProjectCard = memo(function ProjectCard({
   project: p,
   hidden,
@@ -103,24 +101,22 @@ const ProjectCard = memo(function ProjectCard({
 }) {
   return (
     <div
-      className={`p-6 rounded-xl border border-white/10 bg-white/5 text-white/90 ${hidden ? "hidden sm:block" : ""}`}
+      className={`p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90 transition-all duration-300 hover:border-white/20 hover:scale-[1.02] ${hidden ? "hidden sm:block" : ""}`}
     >
       <div className="relative h-40 mb-4 rounded-lg overflow-hidden bg-white/10">
         <Image
           src={p.image}
           alt={p.title}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
           loading="lazy"
           quality={75}
-          placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2NjYyIvPjwvc3ZnPg=="
         />
       </div>
 
       <h3 className="text-lg font-medium">{p.title}</h3>
-      <p className="mt-2 text-sm text-white/70 line-clamp-3">{p.desc}</p>
+      <p className="mt-2 text-sm text-white/70">{p.desc}</p>
 
       <div className="mt-3 flex flex-wrap gap-2">
         {p.tech.map((t) => (
@@ -134,20 +130,10 @@ const ProjectCard = memo(function ProjectCard({
       </div>
 
       <div className="mt-4 flex justify-between text-[11px] uppercase tracking-widest text-white/60">
-        <a
-          href={p.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white transition-colors"
-        >
+        <a href={p.live} target="_blank" rel="noopener noreferrer">
           Live →
         </a>
-        <a
-          href={p.repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white transition-colors"
-        >
+        <a href={p.repo} target="_blank" rel="noopener noreferrer">
           GitHub →
         </a>
       </div>
@@ -157,15 +143,12 @@ const ProjectCard = memo(function ProjectCard({
 
 const Certificates = memo(function Certificates() {
   const [showMore, setShowMore] = useState(false);
-
+  
+  // Memoize visible certificates
   const visible = useMemo(
     () => (showMore ? CERTIFICATES : CERTIFICATES.slice(0, 6)),
     [showMore]
   );
-
-  const handleToggle = useCallback(() => {
-    setShowMore((prev) => !prev);
-  }, []);
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -176,8 +159,8 @@ const Certificates = memo(function Certificates() {
       {CERTIFICATES.length > 6 && (
         <div className="col-span-full flex justify-center mt-10">
           <button
-            onClick={handleToggle}
-            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] transition-transform duration-200 active:scale-95"
+            onClick={() => setShowMore(!showMore)}
+            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.05]"
           >
             {showMore ? "Show Less" : "Show More"}
           </button>
@@ -187,13 +170,14 @@ const Certificates = memo(function Certificates() {
   );
 });
 
+// Separate CertificateCard component
 const CertificateCard = memo(function CertificateCard({
   certificate: c,
 }: {
   certificate: (typeof CERTIFICATES)[number];
 }) {
   return (
-    <div className="p-6 rounded-xl border border-white/10 bg-white/5 text-white/90 flex flex-col items-center text-center">
+    <div className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90 flex flex-col items-center text-center transition-all hover:border-white/20 hover:scale-[1.02]">
       <div className="relative w-24 h-24 mb-4 rounded-lg overflow-hidden bg-white/10">
         <Image
           src={c.image}
@@ -215,7 +199,7 @@ const CertificateCard = memo(function CertificateCard({
         href={c.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-3 text-[11px] uppercase tracking-widest text-white/70 hover:text-white transition-colors"
+        className="mt-3 text-[11px] uppercase tracking-widest text-white/70 hover:text-white"
       >
         View Certificate →
       </a>
@@ -225,25 +209,20 @@ const CertificateCard = memo(function CertificateCard({
 
 const Skills = memo(function Skills() {
   const [showMore, setShowMore] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Check mobile after mount to avoid hydration issues
-  useMemo(() => {
-    if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth < 640);
-    }
+  
+  // Use useMemo to check if mobile instead of direct window access
+  const isMobile = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.innerWidth < 640;
   }, []);
 
+  // Memoize visible skills
   const visible = useMemo(() => {
     if (!isMobile) return SKILLS;
     return showMore ? SKILLS : SKILLS.slice(0, 12);
   }, [isMobile, showMore]);
 
   const hasMore = SKILLS.length > 12;
-
-  const handleToggle = useCallback(() => {
-    setShowMore((prev) => !prev);
-  }, []);
 
   return (
     <>
@@ -258,8 +237,8 @@ const Skills = memo(function Skills() {
       {hasMore && isMobile && (
         <div className="flex justify-center mt-8 sm:hidden">
           <button
-            onClick={handleToggle}
-            className="px-8 py-3 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-[0.2em] transition-transform duration-200 active:scale-95"
+            onClick={() => setShowMore(!showMore)}
+            className="px-8 py-3 rounded-full bg-white text-black text-xs font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all hover:scale-[1.05]"
           >
             {showMore ? "Show Less" : "Show More"}
           </button>
@@ -269,13 +248,14 @@ const Skills = memo(function Skills() {
   );
 });
 
+// Separate SkillCard component
 const SkillCard = memo(function SkillCard({
   skill: s,
 }: {
   skill: (typeof SKILLS)[number];
 }) {
   return (
-    <div className="relative group h-16 w-16 rounded-xl bg-white/5 border border-white/10 flex justify-center items-center">
+    <div className="relative group h-16 w-16 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex justify-center items-center">
       <Image
         src={s.logo}
         alt={s.name}
@@ -285,7 +265,7 @@ const SkillCard = memo(function SkillCard({
         loading="lazy"
         quality={75}
       />
-      <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 hidden sm:block text-[10px] uppercase tracking-wide text-white bg-black/80 border border-white/10 px-3 py-1 rounded-lg whitespace-nowrap pointer-events-none transition-opacity duration-200">
+      <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 hidden sm:block text-[10px] uppercase tracking-wide text-white bg-black/80 border border-white/10 px-3 py-1 rounded-lg whitespace-nowrap pointer-events-none">
         {s.name}
       </span>
     </div>
