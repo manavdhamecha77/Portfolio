@@ -1,115 +1,19 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { useState } from "react";
 
 import { ABOUT_TABS, type AboutTab, EDUCATION, EXPERIENCE } from "@/constants";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function About() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const titleRef = useRef<HTMLHeadingElement | null>(null);
-  const textRef = useRef<HTMLParagraphElement | null>(null);
-
   const [activeTab, setActiveTab] = useState<AboutTab>("Experience");
-
-  // For arrays: use HTMLAnchorElement | null (for buttons)
-  const buttonsRef = useRef<(HTMLAnchorElement | null)[]>([]);
-  // For cards: use HTMLDivElement | null
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const setButtonRef = (index: number) => (el: HTMLAnchorElement | null) => {
-    buttonsRef.current[index] = el;
-  };
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          once: true,
-        },
-        defaults: {
-          ease: "power3.out",
-          duration: 0.8,
-        },
-      });
-
-      tl.from(titleRef.current, {
-        y: 30,
-        opacity: 0,
-      })
-        .from(
-          textRef.current,
-          {
-            y: 20,
-            opacity: 0,
-          },
-          "-=0.4",
-        )
-        .from(
-          buttonsRef.current.filter(Boolean), // null-safe
-          {
-            y: 10,
-            autoAlpha: 0,
-            opacity: 0,
-            stagger: 0.15,
-            duration: 0.6,
-            immediateRender: false,
-          },
-          "-=0.3",
-        )
-        .from(
-          cardsRef.current.filter(Boolean),
-          {
-            y: 40,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 0.7,
-          },
-          "-=0.2",
-        );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  useLayoutEffect(() => {
-    const container = contentRef.current;
-    if (!container) return;
-
-    const children = Array.from(container.children) as HTMLElement[];
-
-    gsap.fromTo(
-      children,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.12,
-        duration: 0.6,
-        ease: "power3.out",
-      },
-    );
-  }, [activeTab]);
-
-  const contentRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <section
       id="about"
-      ref={sectionRef}
       className="min-h-screen px-6 sm:px-10 py-32"
     >
       <div className="max-w-3xl mx-auto text-center">
-        <h2
-          ref={titleRef}
-          className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white"
-        >
+        <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">
           About Me
         </h2>
       </div>
@@ -131,7 +35,7 @@ export default function About() {
         </div>
       </div>
 
-      <div ref={contentRef} className="mt-16 max-w-4xl mx-auto">
+      <div className="mt-16 max-w-4xl mx-auto">
         {activeTab === "Experience" && (
           <div className="relative">
             <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-[#7cff67]/20" />
@@ -140,10 +44,7 @@ export default function About() {
               <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
                 <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
 
-                <div
-                  ref={(el) => void (cardsRef.current[i] = el)}
-                  className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300"
-                >
+                <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
                     {exp.title}
                   </h3>
@@ -193,10 +94,7 @@ export default function About() {
               <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
                 <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
 
-                <div
-                  ref={(el) => void (cardsRef.current[i] = el)}
-                  className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300"
-                >
+                <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
                     {edu.degree}
                     {edu.class && (
