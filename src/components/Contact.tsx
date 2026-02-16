@@ -102,15 +102,15 @@ export default function Contact() {
         `}
       >
         <header className="text-center mb-16">
-          <h2 className="text-5xl sm:text-6xl font-semibold text-white">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">
             Contact Me
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-white/70">
-            Send me a message, I usually relpy within a day.
+          <p className="mt-6 text-sm sm:text-base text-white/60 font-mono tracking-wide">
+            Send me a message, I usually reply within a day.
           </p>
         </header>
 
-        <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-white/10 bg-black/20 shadow-[0_0_50px_rgba(0,0,0,0.25)] space-y-8">
+        <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-[#7cff67]/30 bg-black/40 shadow-[0_0_50px_rgba(124,255,103,0.15)] space-y-8">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <Input
               placeholder="Your Name"
@@ -132,11 +132,15 @@ export default function Contact() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full px-8 py-3 rounded-lg bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] transition-transform duration-300 hover:scale-[1.04]"
+              className="w-full px-8 py-4 rounded-full bg-[#7cff67] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.25em] transition-all duration-300 hover:scale-[1.02] shadow-[0_0_28px_rgba(124,255,103,0.4)] hover:shadow-[0_0_40px_rgba(124,255,103,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-            {status && <p className="text-sm mt-2 text-white text-center">{status}</p>}
+            {status && (
+              <p className="text-sm mt-2 text-center font-mono font-bold text-[#7cff67]">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </div>
@@ -148,7 +152,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className="w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 text-sm outline-none focus:border-white transition-colors"
+      className="w-full bg-black/40 border border-[#7cff67]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none focus:border-[#7cff67] focus:shadow-[0_0_20px_rgba(124,255,103,0.2)] transition-all placeholder:text-white/40"
     />
   );
 }
@@ -158,7 +162,7 @@ function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
     <textarea
       {...props}
       rows={4}
-      className="w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 text-sm outline-none resize-none focus:border-white transition-colors"
+      className="w-full bg-black/40 border border-[#7cff67]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none resize-none focus:border-[#7cff67] focus:shadow-[0_0_20px_rgba(124,255,103,0.2)] transition-all placeholder:text-white/40"
     />
   );
 }

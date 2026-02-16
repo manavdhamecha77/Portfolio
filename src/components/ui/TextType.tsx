@@ -103,6 +103,15 @@ const TextType = ({
     let timeout: ReturnType<typeof setTimeout>;
 
     const currentText = textArray[currentTextIndex];
+
+    // Safety check: If currentText is undefined (e.g., during prop updates), skip this frame
+    if (!currentText) {
+      if (textArray.length > 0) {
+        setCurrentTextIndex(0);
+      }
+      return;
+    }
+
     const processedText = reverseMode ? currentText.split('').reverse().join('') : currentText;
 
     const executeTypingAnimation = () => {
@@ -119,14 +128,14 @@ const TextType = ({
 
           setCurrentTextIndex(prev => (prev + 1) % textArray.length);
           setCurrentCharIndex(0);
-          timeout = setTimeout(() => {}, pauseDuration);
+          timeout = setTimeout(() => { }, pauseDuration);
         } else {
           timeout = setTimeout(() => {
             setDisplayedText(prev => prev.slice(0, -1));
           }, deletingSpeed);
         }
       } else {
-        if (currentCharIndex < processedText.length) {
+        if (processedText && currentCharIndex < processedText.length) {
           timeout = setTimeout(
             () => {
               setDisplayedText(prev => prev + processedText[currentCharIndex]);

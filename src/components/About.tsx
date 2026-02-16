@@ -108,50 +108,22 @@ export default function About() {
       <div className="max-w-3xl mx-auto text-center">
         <h2
           ref={titleRef}
-          className="text-5xl sm:text-6xl font-semibold text-white tracking-tight"
+          className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white"
         >
           About Me
         </h2>
-
-        <p
-          ref={textRef}
-          className="mt-6 text-white/70 leading-relaxed text-base sm:text-lg text-justify max-w-2xl mx-auto"
-        >
-          Hello, I&apos;m Manav Dhamecha, a second year B.Tech student in
-          Artificial Intelligence at NIT Surat, passionate about building
-          scalable software, AI-driven applications, and full-stack solutions. I
-          enjoy exploring new technologies and apply them to solve real-world
-          problems or create engaging projects. Open to learning, collaboration,
-          and opportunities in SDE, Full-Stack, and AI domains.
-        </p>
-
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-          <a
-            ref={setButtonRef(0)}
-            href="https://drive.google.com/file/d/13X9x03ZNjr5MdxiygnlVSXdFd2O8F5uL/view?usp=drive_link"
-            download
-            className="px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-medium uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 hover:scale-[1.04]"
-          >
-            Download CV
-          </a>
-
-          <a
-            ref={setButtonRef(1)}
-            href="#portfolio"
-            className="px-8 py-3 rounded-full bg-white text-black text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(255,255,255,0.4)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] hover:scale-[1.05]"
-          >
-            View Projects
-          </a>
-        </div>
       </div>
 
       <div className="mt-12 flex justify-center px-4">
-        <div className="inline-flex rounded-full border border-white/30 backdrop-blur-sm p-1 w-full max-w-2xl">
+        <div className="inline-flex rounded-full border border-[#7cff67]/30 backdrop-blur-sm p-1 w-full max-w-2xl">
           {ABOUT_TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={` flex-1 px-3 sm:px-6 py-2 sm:py-3 rounded-full text-[9px] sm:text-[11px] md:text-xs font-medium uppercase tracking-[0.18em] transition-all duration-300 ${activeTab === tab ? "bg-white text-black shadow-[0_0_28px_rgba(255,255,255,0.4)]" : "text-white/70 hover:text-white"}`}
+              className={`flex-1 px-3 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.2em] transition-all duration-300 ${activeTab === tab
+                  ? "bg-[#7cff67] text-black shadow-[0_0_28px_rgba(124,255,103,0.4)]"
+                  : "text-white/70 hover:text-white"
+                }`}
             >
               {tab}
             </button>
@@ -162,33 +134,36 @@ export default function About() {
       <div ref={contentRef} className="mt-16 max-w-4xl mx-auto">
         {activeTab === "Experience" && (
           <div className="relative">
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-[#7cff67]/20" />
 
             {EXPERIENCE.map((exp, i) => (
               <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
 
                 <div
                   ref={(el) => void (cardsRef.current[i] = el)}
-                  className=" p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90"
+                  className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-medium">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
                     {exp.title}
                   </h3>
 
-                  <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap sm:flex-nowrap sm:items-center">
+                  <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap sm:flex-nowrap sm:items-center font-mono">
                     <span className="flex gap-2">
                       {exp.company} • {exp.type} • {exp.location}
                     </span>
 
-                    <span className="w-full sm:w-auto sm:ml-auto text-left block mt-1 sm:mt-0">
+                    <span className="w-full sm:w-auto sm:ml-auto text-left block mt-1 sm:mt-0 text-[#7cff67]">
                       {exp.period.start} – {exp.period.end}
                     </span>
                   </p>
 
-                  <ul className="mt-4 space-y-3 list-disc list-inside text-sm sm:text-base text-white/80 leading-relaxed">
+                  <ul className="mt-4 space-y-3 list-none text-sm sm:text-base text-white/80 leading-relaxed">
                     {exp.bullets.map((b, idx) => (
-                      <li key={idx}>{b}</li>
+                      <li key={idx} className="flex gap-3">
+                        <span className="text-[#7cff67] mt-1 flex-shrink-0">▸</span>
+                        <span>{b}</span>
+                      </li>
                     ))}
                   </ul>
 
@@ -197,7 +172,7 @@ export default function About() {
                       {exp.tech.map((t, idx) => (
                         <span
                           key={idx}
-                          className=" px-3 py-1 rounded-full text-[10px] sm:text-xs bg-white/10 border border-white/20 text-white"
+                          className="px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider bg-[#7cff67]/10 border border-[#7cff67]/30 text-[#7cff67] hover:bg-[#7cff67]/20 transition-colors"
                         >
                           {t}
                         </span>
@@ -212,17 +187,17 @@ export default function About() {
 
         {activeTab === "Education" && (
           <div className="relative">
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-white/10" />
+            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-[#7cff67]/20" />
 
             {EDUCATION.map((edu, i) => (
               <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-white shadow-[0_0_20px_rgba(255,255,255,0.6)] ring-1 ring-white/20" />
+                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
 
                 <div
                   ref={(el) => void (cardsRef.current[i] = el)}
-                  className="p-6 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white/90"
+                  className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300"
                 >
-                  <h3 className="text-lg sm:text-xl font-medium">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
                     {edu.degree}
                     {edu.class && (
                       <>
@@ -234,8 +209,8 @@ export default function About() {
                     )}
                   </h3>
 
-                  <p className="mt-1 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap gap-2">
-                    <span>
+                  <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap gap-2 font-mono">
+                    <span className="text-[#7cff67]">
                       {edu.period.start} – {edu.period.end}
                     </span>
                     <span>
@@ -243,7 +218,7 @@ export default function About() {
                     </span>
                   </p>
 
-                  <p className="mt-3 text-sm sm:text-base text-white/80">
+                  <p className="mt-3 text-sm sm:text-base text-white/80 font-mono">
                     {edu.grade}
                     {edu.board && ` • ${edu.board}`}
                   </p>
