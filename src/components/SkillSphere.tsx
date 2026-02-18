@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useMemo } from "react";
 
-// ── Skill definitions with clean inline SVGs ──────────────────────────────────
 const SKILLS = [
     {
         label: "React",
@@ -238,7 +237,7 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
 
             if (sphere) {
                 sphere.style.transform =
-                    `rotateX(${angleRef.current.x}rad) rotateY(${angleRef.current.y}rad)`;
+                    `rotateX(${-angleRef.current.x}rad) rotateY(${angleRef.current.y}rad)`;
             }
         }
 
@@ -265,7 +264,8 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
             const dx = e.clientX - lastPointerRef.current.x;
             const dy = e.clientY - lastPointerRef.current.y;
             angleRef.current.y += dx * 0.006;
-            angleRef.current.x = Math.max(-1.2, Math.min(1.2, angleRef.current.x + dy * 0.006));
+            // Negate dy so dragging up tilts the sphere upward (not inverted)
+            angleRef.current.x = Math.max(-1.2, Math.min(1.2, angleRef.current.x - dy * 0.006));
             lastPointerRef.current = { x: e.clientX, y: e.clientY };
         };
         const onUp = () => { isDraggingRef.current = false; };
@@ -293,6 +293,7 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
                     width: containerSize,
                     height: containerSize,
                     perspective: containerSize * 2.8,
+                    touchAction: "none", // prevent browser scroll from stealing touch events
                 }}
                 aria-label="Interactive 3D skill sphere — drag to rotate"
             >
