@@ -39,8 +39,8 @@ export default function Portfolio() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 text-center ${activeTab === tab
-                  ? "bg-[#7cff67] text-black shadow-[0_0_24px_rgba(124,255,103,0.4)]"
-                  : "text-white/70 hover:text-white"
+                ? "bg-[#7cff67] text-black shadow-[0_0_24px_rgba(124,255,103,0.4)]"
+                : "text-white/70 hover:text-white"
                 }`}
             >
               <span className="block truncate">{tab}</span>
@@ -245,7 +245,7 @@ const Skills = memo(function Skills() {
   return (
     <>
       <div className="flex justify-center w-full">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 place-items-center">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 place-items-center">
           {visible.map((s) => (
             <SkillCard key={s.name} skill={s} />
           ))}

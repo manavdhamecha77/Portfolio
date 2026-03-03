@@ -25,8 +25,8 @@ export default function About() {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 px-3 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.2em] transition-all duration-300 ${activeTab === tab
-                  ? "bg-[#7cff67] text-black shadow-[0_0_28px_rgba(124,255,103,0.4)]"
-                  : "text-white/70 hover:text-white"
+                ? "bg-[#7cff67] text-black shadow-[0_0_28px_rgba(124,255,103,0.4)]"
+                : "text-white/70 hover:text-white"
                 }`}
             >
               {tab}
@@ -37,12 +37,9 @@ export default function About() {
 
       <div className="mt-16 max-w-4xl mx-auto">
         {activeTab === "Experience" && (
-          <div className="relative">
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-[#7cff67]/20" />
-
+          <div className="flex flex-col gap-8">
             {EXPERIENCE.map((exp, i) => (
-              <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
+              <div key={i} className="relative">
 
                 <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
@@ -87,12 +84,9 @@ export default function About() {
         )}
 
         {activeTab === "Education" && (
-          <div className="relative">
-            <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-[#7cff67]/20" />
-
+          <div className="flex flex-col gap-6">
             {EDUCATION.map((edu, i) => (
-              <div key={i} className="relative pl-14 sm:pl-20 pb-12 last:pb-0">
-                <div className="absolute left-3.5 sm:left-6.5 top-1.5 w-3 h-3 rounded-full bg-[#7cff67] shadow-[0_0_20px_rgba(124,255,103,0.6)] ring-2 ring-[#7cff67]/30" />
+              <div key={i} className="relative">
 
                 <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
