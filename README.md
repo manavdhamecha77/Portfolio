@@ -12,9 +12,6 @@ A personal portfolio website showcasing my skills, projects, and experience as a
 - Nextjs
 - Tailwind CSS
 - TypeScript
-- GSAP
-- Nodemailer
-- React Bits
 
 ## Setup
 ```bash
