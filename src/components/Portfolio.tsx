@@ -237,10 +237,10 @@ const Skills = memo(function Skills() {
   // Memoize visible skills
   const visible = useMemo(() => {
     if (!isMobile) return SKILLS;
-    return showMore ? SKILLS : SKILLS.slice(0, 12);
+    return showMore ? SKILLS : SKILLS.slice(0, 20);
   }, [isMobile, showMore]);
 
-  const hasMore = SKILLS.length > 12;
+  const hasMore = SKILLS.length > 20;
 
   return (
     <>
