@@ -4,7 +4,7 @@ export default function Social() {
     const links = [
         {
             name: "Download CV",
-            url: "https://drive.google.com/file/d/1CFi3cdWdG58cBj-LTaPFFAAfw3edHVPQ/view?usp=drive_link",
+            url: "https://drive.google.com/file/d/12HYXe97z9oe_ekEPBxPsNk2o1hmNP1TE/view?usp=drivesdk",
             download: true,
         },
         {
