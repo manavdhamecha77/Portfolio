@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Github, Linkedin, Mail } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,36 +32,6 @@ export default function Footer() {
       className="py-20 px-10 text-center max-w-6xl mx-auto border-t border-[#7cff67]/20"
     >
       <div className="footer-content space-y-6">
-        <div className="flex justify-center gap-6">
-          <a
-            href="https://github.com/manavdhamecha77"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/50 hover:text-[#7cff67] transition-colors"
-            aria-label="GitHub"
-          >
-            <Github size={20} />
-          </a>
-
-          <a
-            href="https://linkedin.com/in/manavdhamecha"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/50 hover:text-[#7cff67] transition-colors"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={20} />
-          </a>
-
-          <a
-            href="mailto:manavdhamecha1@gmail.com"
-            className="text-white/50 hover:text-[#7cff67] transition-colors"
-            aria-label="Email"
-          >
-            <Mail size={20} />
-          </a>
-        </div>
-
         <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-white/50 font-mono font-bold">
           © {new Date().getFullYear()} Manav Dhamecha — All Rights Reserved
         </p>

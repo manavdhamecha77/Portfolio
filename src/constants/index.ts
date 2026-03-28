@@ -130,6 +130,7 @@ export const EXPERIENCE = [
   {
     title: "Software Engineer Intern",
     company: "Fastrac",
+    logo: "/logos/fastrac.svg", 
     type: "Internship",
     location: "Remote / India",
     period: {
@@ -149,6 +150,7 @@ export const EDUCATION = [
   {
     degree: "B.Tech in Artificial Intelligence",
     institute: "Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat",
+    logo: "/logos/svnit.png", 
     location: "Surat, India",
     period: {
       start: "2024",
@@ -162,6 +164,7 @@ export const EDUCATION = [
     degree: "Senior Secondary - PCM",
     class: "Class XII",
     institute: "L.P. Savani International School",
+    logo: "/logos/lpsi-school.png",  
     location: "Surat, India",
     period: {
       start: "2023",
@@ -174,6 +177,7 @@ export const EDUCATION = [
     degree: "Secondary",
     class: "Class X",
     institute: "L.P. Savani International School",
+    logo: "/logos/lpsi-school.png",
     location: "Surat, India",
     period: {
       start: "2021",
@@ -181,5 +185,33 @@ export const EDUCATION = [
     },
     grade: "Percentage: 95%",
     board: "CBSE",
+  },
+] as const;
+
+export const ACHIEVEMENTS = [
+  {
+    title: "Echelon 2026 Winner",
+    desc: "Winner of Echelon 2026, a national 24-hour hackathon organized by ISEA & ACM at NIT Surat, competing against 40+ teams.",
+    image: "/achievements/echelon.jpeg",
+  },
+  {
+    title: "AACL-IJCNLP 2025 (Grammatical Error Correction)",
+    desc: "Co-authored a research paper on Multilingual Grammatical Error Correction in Indic languages at AACL-IJCNLP 2025, IIT Bombay.",
+    image: "/achievements/gec.png",
+  },
+  {
+    title: "AACL-IJCNLP 2025 (Word Grouping)",
+    desc: "Co-authored a research paper on Hindi Word Grouping for Indic NLP at AACL-IJCNLP 2025, IIT Bombay.",
+    image: "/achievements/wg.png",
+  },
+  {
+    title: "Genesis 2026 Winner",
+    desc: "Winner of Genesis 2026, organized by ACM × CEV × GDSC at NIT Surat.",
+    image: "/achievements/genesis.jpeg",
+  },
+  {
+    title: "Web Wonders 3.0 Winner",
+    desc: "Winner of Web Wonders 3.0, organized by Nexus, NIT Surat with 200+ participants.",
+    image: "/achievements/ww.jpeg",
   },
 ] as const;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import { ABOUT_TABS, type AboutTab, EDUCATION, EXPERIENCE } from "@/constants";
 
@@ -16,6 +17,9 @@ export default function About() {
         <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">
           About Me
         </h2>
+        <p className="mt-6 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-mono tracking-wide max-w-2xl mx-auto">
+          My journey through experience and education that shaped who I am today.
+        </p>
       </div>
 
       <div className="mt-12 flex justify-center px-4">
@@ -42,19 +46,34 @@ export default function About() {
               <div key={i} className="relative">
 
                 <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
-                    {exp.title}
-                  </h3>
+                  <div className="flex items-start gap-4">
+                    {exp.logo && (
+                      <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[#7cff67]/20 bg-white/5">
+                        <Image
+                          src={exp.logo}
+                          alt={exp.company}
+                          width={56}
+                          height={56}
+                          className="w-full h-full object-contain p-1.5"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
+                        {exp.title}
+                      </h3>
 
-                  <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap sm:flex-nowrap sm:items-center font-mono">
-                    <span className="flex gap-2">
-                      {exp.company} • {exp.type} • {exp.location}
-                    </span>
+                    <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap sm:flex-nowrap sm:items-center font-mono">
+                      <span className="flex gap-2">
+                        {exp.company} • {exp.type} • {exp.location}
+                      </span>
 
-                    <span className="w-full sm:w-auto sm:ml-auto text-left block mt-1 sm:mt-0 text-[#7cff67]">
-                      {exp.period.start} – {exp.period.end}
-                    </span>
-                  </p>
+                      <span className="w-full sm:w-auto sm:ml-auto text-left block mt-1 sm:mt-0 text-[#7cff67]">
+                        {exp.period.start} – {exp.period.end}
+                      </span>
+                    </p>
+                    </div>
+                  </div>
 
                   <ul className="mt-4 space-y-3 list-none text-sm sm:text-base text-white/80 leading-relaxed">
                     {exp.bullets.map((b, idx) => (
@@ -89,31 +108,46 @@ export default function About() {
               <div key={i} className="relative">
 
                 <div className="p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 hover:border-[#7cff67]/40 transition-all duration-300">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
-                    {edu.degree}
-                    {edu.class && (
-                      <>
-                        <br />
-                        <span className="text-sm text-white/70">
-                          {edu.class}
-                        </span>
-                      </>
+                  <div className="flex items-start gap-4">
+                    {edu.logo && (
+                      <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-[#7cff67]/20 bg-white/5">
+                        <Image
+                          src={edu.logo}
+                          alt={edu.institute}
+                          width={56}
+                          height={56}
+                          className="w-full h-full object-contain p-1.5"
+                        />
+                      </div>
                     )}
-                  </h3>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold font-mono uppercase tracking-tight text-white">
+                        {edu.degree}
+                        {edu.class && (
+                          <>
+                            <br />
+                            <span className="text-sm text-white/70">
+                              {edu.class}
+                            </span>
+                          </>
+                        )}
+                      </h3>
 
-                  <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap gap-2 font-mono">
-                    <span className="text-[#7cff67]">
-                      {edu.period.start} – {edu.period.end}
-                    </span>
-                    <span>
-                      {edu.institute} • {edu.location}
-                    </span>
-                  </p>
+                      <p className="mt-2 text-xs sm:text-sm text-white/60 tracking-wide flex flex-wrap gap-2 font-mono">
+                        <span className="text-[#7cff67]">
+                          {edu.period.start} – {edu.period.end}
+                        </span>
+                        <span>
+                          {edu.institute} • {edu.location}
+                        </span>
+                      </p>
 
-                  <p className="mt-3 text-sm sm:text-base text-white/80 font-mono">
-                    {edu.grade}
-                    {edu.board && ` • ${edu.board}`}
-                  </p>
+                      <p className="mt-3 text-sm sm:text-base text-white/80 font-mono">
+                        {edu.grade}
+                        {edu.board && ` • ${edu.board}`}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

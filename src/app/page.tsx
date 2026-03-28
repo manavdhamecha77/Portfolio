@@ -2,11 +2,12 @@
 
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
+import Achievements from "../components/Achievements";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import About from "@/components/About";
 import Navbar from "@/components/Navbar";
-import Social from "@/components/Social";
+
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       <Hero />
       <About />
       <Portfolio />
-      <Social />
+      <Achievements />
+
       <Contact />
       <Footer />
     </div>
