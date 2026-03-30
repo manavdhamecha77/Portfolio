@@ -123,7 +123,7 @@ export default function Contact() {
       {visible && !prefersReducedMotion && !isMobile && (
         <div className="absolute inset-0 -z-10">
           <LiquidEther
-            colors={["#5227FF", "#FF9FFC"]}
+            colors={["#37ff00", "#7cff67"]}
             resolution={0.35}
             viscous={20}
             iterationsViscous={16}
