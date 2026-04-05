@@ -43,9 +43,10 @@ interface SkillSphereProps {
     mobileSize?: number;
 }
 
-export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSphereProps) {
+export default function SkillSphere({ size = 520, mobileSize = 520 }: SkillSphereProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const sphereRef = useRef<HTMLDivElement>(null);
+    const photoRef = useRef<HTMLDivElement>(null);
     const rafRef = useRef<number>(0);
     const angleRef = useRef({ x: 0.3, y: 0 });
     const isVisibleRef = useRef(true);
@@ -58,8 +59,8 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
     }, []);
 
     const containerSize = isMobile ? mobileSize : size;
-    const radius = containerSize / 2 - 24;
-    const skillCount = isMobile ? 10 : SKILLS.length;
+    const radius = containerSize / 2 - 8;
+    const skillCount = SKILLS.length;
     const skills = useMemo(() => SKILLS.slice(0, skillCount), [skillCount]);
     const points = useMemo(
         () => fibonacciSphere(skills.length, radius),
@@ -95,6 +96,13 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
             if (sphere) {
                 sphere.style.transform =
                     `rotateX(${-angleRef.current.x}rad) rotateY(${angleRef.current.y}rad)`;
+            }
+
+            // Counter-rotate photo so it stays visually static
+            const photo = photoRef.current;
+            if (photo) {
+                photo.style.transform =
+                    `translate3d(0px, 0px, 0px) rotateY(${-angleRef.current.y}rad) rotateX(${angleRef.current.x}rad)`;
             }
         }
 
@@ -174,6 +182,36 @@ export default function SkillSphere({ size = 360, mobileSize = 280 }: SkillSpher
                         willChange: "transform",
                     }}
                 >
+                    {/* Center profile photo */}
+                    <div
+                        ref={photoRef}
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            width: isMobile ? 153 : 180,
+                            height: isMobile ? 153 : 180,
+                            marginTop: isMobile ? -76.5 : -90,
+                            marginLeft: isMobile ? -76.5 : -90,
+                            transform: "translate3d(0px, 0px, 0px)",
+                            pointerEvents: "none",
+                            borderRadius: 10,
+                            overflow: "hidden",
+                            border: "2px solid rgba(255,255,255,0.9)",
+                            boxShadow: "0 0 18px rgba(255,255,255,0.2)",
+                        }}
+                    >
+                        <img
+                            src="/manav.jpeg"
+                            alt="Manav"
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                display: "block",
+                            }}
+                        />
+                    </div>
                     {skills.map((skill, i) => {
                         const { x, y, z } = points[i];
                         // Depth-based scaling: icons closer to viewer appear larger
