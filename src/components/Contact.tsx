@@ -214,9 +214,10 @@ export default function Contact() {
                   <span className="text-base font-bold font-mono text-white/90 tracking-wide group-hover:text-white transition-colors duration-300">
                     {link.name}
                   </span>
+                  {/* 
                   <span className="text-xs font-mono text-white/40 group-hover:text-white/60 transition-colors duration-300 truncate max-w-[200px]">
                     {link.url.replace(/^https?:\/\//, "").replace(/^mailto:/, "")}
-                  </span>
+                  </span> */}
                 </div>
 
                 {/* Arrow */}
