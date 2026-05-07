@@ -18,6 +18,7 @@ export const SKILLS = [
   { name: "PostgreSQL", logo: "/skills/postgresql.svg"},
   { name: "MySQL", logo: "/skills/mysql.svg"},
   { name: "Redis", logo: "/skills/redis.svg"},
+  { name: "SQLite", logo: "/skills/sqlite.svg"},
   { name: "Tanstack Query", logo: "/skills/tanstack.svg"},
   { name: "Docker", logo: "/skills/docker.svg"},
   { name: "Vercel", logo: "/skills/vercel.svg"},

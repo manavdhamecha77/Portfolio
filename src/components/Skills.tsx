@@ -5,11 +5,13 @@ import Image from "next/image";
 import { SKILLS } from "@/constants";
 
 type SkillGroupId = "frontend" | "backend" | "databases" | "devops" | "ai-ml";
+type Skill = (typeof SKILLS)[number];
+type SkillName = Skill["name"];
 
 const SKILL_GROUPS: {
   id: SkillGroupId;
   label: string;
-  skills: readonly string[];
+  skills: readonly SkillName[];
 }[] = [
   {
     id: "frontend",
@@ -65,7 +67,7 @@ export default function Skills() {
     if (!group) return [];
     return group.skills
       .map((name) => skillMap.get(name))
-      .filter((skill): skill is (typeof SKILLS)[number] => Boolean(skill));
+      .filter((skill): skill is Skill => Boolean(skill));
   }, [activeGroup]);
 
   const goToPrevGroup = () => {
