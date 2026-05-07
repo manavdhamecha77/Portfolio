@@ -29,14 +29,14 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="py-10 px-10 text-center max-w-6xl mx-auto border-t border-[#7cff67]/20"
+      className="py-10 px-10 text-center max-w-6xl mx-auto border-t border-[#00bfff]/20"
     >
       <div className="footer-content space-y-6">
         <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-white/50 font-mono font-bold">
           © {new Date().getFullYear()} Manav Dhamecha — All Rights Reserved
         </p>
 
-        <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#7cff67]/60 font-mono font-bold">
+        <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-[#00bfff]/60 font-mono font-bold">
           Built with passion & precision
         </p>
       </div>

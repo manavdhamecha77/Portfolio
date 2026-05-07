@@ -123,7 +123,7 @@ export default function Contact() {
       {visible && !prefersReducedMotion && !isMobile && (
         <div className="absolute inset-0 -z-10">
           <LiquidEther
-            colors={["#37ff00", "#7cff67"]}
+            colors={["#0094ff", "#00bfff"]}
             resolution={0.35}
             viscous={20}
             iterationsViscous={16}
@@ -156,7 +156,7 @@ export default function Contact() {
         {/* Two-column grid: form + links */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
           {/* Left: Contact Form */}
-          <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-[#7cff67]/30 bg-black/40 shadow-[0_0_50px_rgba(124,255,103,0.15)]">
+          <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-[#00bfff]/30 bg-black/40 shadow-[0_0_50px_rgba(0,191,255,0.15)]">
             <h3 className="text-lg font-bold font-mono uppercase tracking-wider text-white/80 mb-6">
               Send a Message
             </h3>
@@ -181,12 +181,12 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full px-8 py-4 rounded-full bg-[#7cff67] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.25em] transition-all duration-300 hover:scale-[1.02] shadow-[0_0_28px_rgba(124,255,103,0.4)] hover:shadow-[0_0_40px_rgba(124,255,103,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-4 rounded-full bg-[#00bfff] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.25em] transition-all duration-300 hover:scale-[1.02] shadow-[0_0_28px_rgba(0,191,255,0.4)] hover:shadow-[0_0_40px_rgba(0,191,255,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
               {status && (
-                <p className="text-sm mt-2 text-center font-mono font-bold text-[#7cff67]">
+                <p className="text-sm mt-2 text-center font-mono font-bold text-[#00bfff]">
                   {status}
                 </p>
               )}
@@ -194,7 +194,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Social Links */}
-          <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-[#7cff67]/30 bg-black/40 shadow-[0_0_50px_rgba(124,255,103,0.15)] flex flex-col justify-between gap-4">
+          <div className="rounded-3xl px-6 sm:px-8 py-10 backdrop-blur-xl border border-[#00bfff]/30 bg-black/40 shadow-[0_0_50px_rgba(0,191,255,0.15)] flex flex-col justify-between gap-4">
             {socialLinks.map((link) => (
               <a
                 key={link.name}
@@ -202,10 +202,10 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 {...(link.download ? { download: true } : {})}
-                className="group flex items-center gap-5 flex-1 rounded-2xl px-6 py-5 border border-[#7cff67]/15 bg-[#7cff67]/[0.03] transition-all duration-300 hover:border-[#7cff67]/40 hover:bg-[#7cff67]/[0.08] hover:shadow-[0_0_30px_rgba(124,255,103,0.12)]"
+                className="group flex items-center gap-5 flex-1 rounded-2xl px-6 py-5 border border-[#00bfff]/15 bg-[#00bfff]/[0.03] transition-all duration-300 hover:border-[#00bfff]/40 hover:bg-[#00bfff]/[0.08] hover:shadow-[0_0_30px_rgba(0,191,255,0.12)]"
               >
                 {/* Icon circle */}
-                <span className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#7cff67]/[0.06] border border-[#7cff67]/20 text-[#7cff67]/60 transition-all duration-300 group-hover:text-[#7cff67] group-hover:border-[#7cff67]/40 group-hover:bg-[#7cff67]/15 group-hover:shadow-[0_0_20px_rgba(124,255,103,0.2)]">
+                <span className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#00bfff]/[0.06] border border-[#00bfff]/20 text-[#00bfff]/60 transition-all duration-300 group-hover:text-[#00bfff] group-hover:border-[#00bfff]/40 group-hover:bg-[#00bfff]/15 group-hover:shadow-[0_0_20px_rgba(0,191,255,0.2)]">
                   {link.icon}
                 </span>
 
@@ -221,7 +221,7 @@ export default function Contact() {
                 </div>
 
                 {/* Arrow */}
-                <span className="ml-auto text-white/20 group-hover:text-[#7cff67] transition-all duration-300 transform group-hover:translate-x-1">
+                <span className="ml-auto text-white/20 group-hover:text-[#00bfff] transition-all duration-300 transform group-hover:translate-x-1">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
@@ -240,7 +240,7 @@ function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <input
       {...props}
-      className="w-full bg-black/40 border border-[#7cff67]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none focus:border-[#7cff67] focus:shadow-[0_0_20px_rgba(124,255,103,0.2)] transition-all placeholder:text-white/40"
+      className="w-full bg-black/40 border border-[#00bfff]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none focus:border-[#00bfff] focus:shadow-[0_0_20px_rgba(0,191,255,0.2)] transition-all placeholder:text-white/40"
     />
   );
 }
@@ -250,7 +250,7 @@ function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
     <textarea
       {...props}
       rows={4}
-      className="w-full bg-black/40 border border-[#7cff67]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none resize-none focus:border-[#7cff67] focus:shadow-[0_0_20px_rgba(124,255,103,0.2)] transition-all placeholder:text-white/40"
+      className="w-full bg-black/40 border border-[#00bfff]/30 text-white rounded-xl px-4 py-3 text-sm font-mono outline-none resize-none focus:border-[#00bfff] focus:shadow-[0_0_20px_rgba(0,191,255,0.2)] transition-all placeholder:text-white/40"
     />
   );
 }

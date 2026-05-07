@@ -73,11 +73,11 @@ export default function Hero() {
       className="relative min-h-screen flex items-center px-6 sm:px-10 py-20 overflow-hidden bg-black"
     >
       {/* Radial Gradient Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#7cff67]/10 via-[#5227FF]/5 to-black" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#00bfff]/10 via-[#5227FF]/5 to-black" />
 
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(124,255,103,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(124,255,103,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,191,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(0,191,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
       </div>
 
       {/* Two-column layout: text left, sphere right */}
@@ -93,11 +93,11 @@ export default function Hero() {
           >
             <span className="relative inline-block">
               {/* Mobile: Simple white text, Desktop: Gradient animation */}
-              <span className="relative z-10 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-white sm:via-[#7cff67] sm:to-white sm:animate-gradient-x">
+              <span className="relative z-10 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-white sm:via-[#00bfff] sm:to-white sm:animate-gradient-x">
                 Manav Dhamecha
               </span>
               {/* Glitch layers - hidden on mobile */}
-              <span className="hidden sm:block absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-[#7cff67] blur-[1px] animate-glitch-1" aria-hidden="true">
+              <span className="hidden sm:block absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-[#00bfff] blur-[1px] animate-glitch-1" aria-hidden="true">
                 Manav Dhamecha
               </span>
               <span className="hidden sm:block absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 text-[#5227FF] blur-[1px] animate-glitch-2" aria-hidden="true">
@@ -113,7 +113,7 @@ export default function Hero() {
             className="font-mono uppercase tracking-[0.1em] sm:tracking-[0.2em]"
           >
             <TextType
-              className="text-lg sm:text-2xl md:text-3xl font-bold py-3 text-[#7cff67] sm:drop-shadow-[0_0_15px_rgba(124,255,103,0.5)]"
+              className="text-lg sm:text-2xl md:text-3xl font-bold py-3 text-[#00bfff] sm:drop-shadow-[0_0_15px_rgba(0,191,255,0.5)]"
               text={["Full Stack Developer", "AI Engineer", "Problem Solver"]}
               typingSpeed={75}
               deletingSpeed={50}
@@ -137,7 +137,7 @@ export default function Hero() {
             <a
               ref={(el) => { buttonsRef.current[0] = el; }}
               href="#portfolio"
-              className="group relative px-8 py-3 rounded-full bg-[#7cff67] text-black text-xs sm:text-sm font-bold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(124,255,103,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(124,255,103,0.6)] hover:scale-[1.04] overflow-hidden"
+              className="group relative px-8 py-3 rounded-full bg-[#00bfff] text-black text-xs sm:text-sm font-bold uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(0,191,255,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,191,255,0.6)] hover:scale-[1.04] overflow-hidden"
               style={{ opacity: mounted ? undefined : 0 }}
             >
               <span className="relative z-10">View Work</span>
@@ -147,7 +147,7 @@ export default function Hero() {
             <a
               ref={(el) => { buttonsRef.current[1] = el; }}
               href="#contact"
-              className="group relative px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:border-[#7cff67] hover:text-[#7cff67] hover:shadow-[0_0_20px_rgba(124,255,103,0.3)] hover:scale-[1.04]"
+              className="group relative px-8 py-3 rounded-full border border-white/30 text-white text-xs sm:text-sm font-bold uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:border-[#00bfff] hover:text-[#00bfff] hover:shadow-[0_0_20px_rgba(0,191,255,0.3)] hover:scale-[1.04]"
               style={{ opacity: mounted ? undefined : 0 }}
             >
               Contact

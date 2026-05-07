@@ -31,13 +31,13 @@ export default function Portfolio() {
 
       {/* Tabs */}
       <div className="mt-12 flex justify-center px-3">
-        <div className="flex w-full max-w-2xl rounded-full border border-[#7cff67]/30 backdrop-blur-sm p-1 overflow-hidden">
+        <div className="flex w-full max-w-2xl rounded-full border border-[#00bfff]/30 backdrop-blur-sm p-1 overflow-hidden">
           {PORTFOLIO_TABS.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 text-center ${activeTab === tab
-                ? "bg-[#7cff67] text-black shadow-[0_0_24px_rgba(124,255,103,0.4)]"
+                ? "bg-[#00bfff] text-black shadow-[0_0_24px_rgba(0,191,255,0.4)]"
                 : "text-white/70 hover:text-white"
                 }`}
             >
@@ -81,7 +81,7 @@ const Projects = memo(function Projects() {
         <div className="col-span-full flex justify-center mt-10">
           <button
             onClick={() => setShowMore(!showMore)}
-            className="px-8 py-3 rounded-full bg-[#7cff67] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(124,255,103,0.4)] transition-all hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(124,255,103,0.6)]"
+            className="px-8 py-3 rounded-full bg-[#00bfff] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(0,191,255,0.4)] transition-all hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(0,191,255,0.6)]"
           >
             {showMore ? "Show Less" : "Show More"}
           </button>
@@ -101,10 +101,10 @@ const ProjectCard = memo(function ProjectCard({
 }) {
   return (
     <div
-      className={`group p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 transition-all duration-300 hover:border-[#7cff67]/50 hover:scale-[1.02] ${hidden ? "hidden sm:block" : ""
+      className={`group p-6 rounded-xl border border-[#00bfff]/20 bg-black/40 backdrop-blur-sm text-white/90 transition-all duration-300 hover:border-[#00bfff]/50 hover:scale-[1.02] ${hidden ? "hidden sm:block" : ""
         }`}
     >
-      <div className="relative h-40 mb-4 rounded-lg overflow-hidden bg-white/5 border border-[#7cff67]/10">
+      <div className="relative h-40 mb-4 rounded-lg overflow-hidden bg-white/5 border border-[#00bfff]/10">
         <Image
           src={p.image}
           alt={p.title}
@@ -125,7 +125,7 @@ const ProjectCard = memo(function ProjectCard({
         {p.tech.map((t) => (
           <span
             key={t}
-            className="px-2 py-1 text-[9px] sm:text-[10px] rounded-full bg-[#7cff67]/10 border border-[#7cff67]/30 uppercase tracking-wider font-mono text-[#7cff67]"
+            className="px-2 py-1 text-[9px] sm:text-[10px] rounded-full bg-[#00bfff]/10 border border-[#00bfff]/30 uppercase tracking-wider font-mono text-[#00bfff]"
           >
             {t}
           </span>
@@ -137,7 +137,7 @@ const ProjectCard = memo(function ProjectCard({
           href={p.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-[#7cff67] transition-colors"
+          className="hover:text-[#00bfff] transition-colors"
         >
           Live →
         </a>
@@ -145,7 +145,7 @@ const ProjectCard = memo(function ProjectCard({
           href={p.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-[#7cff67] transition-colors"
+          className="hover:text-[#00bfff] transition-colors"
         >
           GitHub →
         </a>
@@ -173,7 +173,7 @@ const Certificates = memo(function Certificates() {
         <div className="col-span-full flex justify-center mt-10">
           <button
             onClick={() => setShowMore(!showMore)}
-            className="px-8 py-3 rounded-full bg-[#7cff67] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(124,255,103,0.4)] transition-all hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(124,255,103,0.6)]"
+            className="px-8 py-3 rounded-full bg-[#00bfff] text-black text-xs sm:text-sm font-bold font-mono uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(0,191,255,0.4)] transition-all hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(0,191,255,0.6)]"
           >
             {showMore ? "Show Less" : "Show More"}
           </button>
@@ -190,8 +190,8 @@ const CertificateCard = memo(function CertificateCard({
   certificate: (typeof CERTIFICATES)[number];
 }) {
   return (
-    <div className="group p-6 rounded-xl border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm text-white/90 flex flex-col items-center text-center transition-all hover:border-[#7cff67]/50 hover:scale-[1.02]">
-      <div className="relative w-24 h-24 mb-4 rounded-lg overflow-hidden bg-white/5 border border-[#7cff67]/10">
+    <div className="group p-6 rounded-xl border border-[#00bfff]/20 bg-black/40 backdrop-blur-sm text-white/90 flex flex-col items-center text-center transition-all hover:border-[#00bfff]/50 hover:scale-[1.02]">
+      <div className="relative w-24 h-24 mb-4 rounded-lg overflow-hidden bg-white/5 border border-[#00bfff]/10">
         <Image
           src={c.image}
           alt={c.title}
@@ -214,7 +214,7 @@ const CertificateCard = memo(function CertificateCard({
         href={c.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 text-[11px] uppercase tracking-widest text-[#7cff67] hover:text-white font-mono font-bold transition-colors"
+        className="mt-4 text-[11px] uppercase tracking-widest text-[#00bfff] hover:text-white font-mono font-bold transition-colors"
       >
         View Certificate →
       </a>

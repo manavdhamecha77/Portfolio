@@ -63,7 +63,7 @@ export default function Achievements() {
           onTouchEnd={handleTouchEnd}
         >
           {/* Image + overlay */}
-          <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#7cff67]/20 bg-black/40 backdrop-blur-sm shadow-[0_0_60px_rgba(124,255,103,0.08)]">
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#00bfff]/20 bg-black/40 backdrop-blur-sm shadow-[0_0_60px_rgba(0,191,255,0.08)]">
             {ACHIEVEMENTS.map((a, i) => (
               <div
                 key={i}
@@ -105,7 +105,7 @@ export default function Achievements() {
             <button
               onClick={prev}
               aria-label="Previous achievement"
-              className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-[#7cff67] hover:border-[#7cff67]/40 transition-all duration-300 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
+              className="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-[#00bfff] hover:border-[#00bfff]/40 transition-all duration-300 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                 <polyline points="15 18 9 12 15 6" />
@@ -114,7 +114,7 @@ export default function Achievements() {
             <button
               onClick={next}
               aria-label="Next achievement"
-              className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-[#7cff67] hover:border-[#7cff67]/40 transition-all duration-300 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
+              className="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 items-center justify-center rounded-full bg-black/50 border border-white/10 text-white/60 hover:text-[#00bfff] hover:border-[#00bfff]/40 transition-all duration-300 opacity-0 group-hover:opacity-100 backdrop-blur-sm"
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                 <polyline points="9 6 15 12 9 18" />
@@ -147,7 +147,7 @@ export default function Achievements() {
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-500 ${
                   i === current
-                    ? "w-8 bg-[#7cff67] shadow-[0_0_12px_rgba(124,255,103,0.5)]"
+                    ? "w-8 bg-[#00bfff] shadow-[0_0_12px_rgba(0,191,255,0.5)]"
                     : "w-3 bg-white/20 hover:bg-white/40"
                 }`}
               />

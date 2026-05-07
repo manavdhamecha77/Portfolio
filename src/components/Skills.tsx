@@ -91,14 +91,14 @@ export default function Skills() {
         </div>
 
         <div className="mt-12 hidden sm:flex justify-center px-3">
-          <div className="flex w-full max-w-4xl rounded-full border border-[#7cff67]/30 backdrop-blur-sm p-1 overflow-hidden">
+          <div className="flex w-full max-w-4xl rounded-full border border-[#00bfff]/30 backdrop-blur-sm p-1 overflow-hidden">
             {SKILL_GROUPS.map((group) => (
               <button
                 key={group.id}
                 onClick={() => setActiveGroup(group.id)}
                 className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 text-center ${
                   activeGroup === group.id
-                    ? "bg-[#7cff67] text-black shadow-[0_0_24px_rgba(124,255,103,0.4)]"
+                    ? "bg-[#00bfff] text-black shadow-[0_0_24px_rgba(0,191,255,0.4)]"
                     : "text-white/70 hover:text-white"
                 }`}
               >
@@ -112,7 +112,7 @@ export default function Skills() {
           <button
             onClick={goToPrevGroup}
             aria-label="Previous skill group"
-            className="h-11 w-11 rounded-full border border-[#7cff67]/30 text-[#7cff67] bg-black/40 flex items-center justify-center"
+            className="h-11 w-11 rounded-full border border-[#00bfff]/30 text-[#00bfff] bg-black/40 flex items-center justify-center"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <polyline points="15 18 9 12 15 6" />
@@ -120,14 +120,14 @@ export default function Skills() {
           </button>
           <button
             type="button"
-            className="min-w-[180px] px-5 py-2.5 rounded-full border border-[#7cff67]/30 bg-[#7cff67] text-black text-xs font-bold font-mono uppercase tracking-[0.2em] text-center"
+            className="min-w-[180px] px-5 py-2.5 rounded-full border border-[#00bfff]/30 bg-[#00bfff] text-black text-xs font-bold font-mono uppercase tracking-[0.2em] text-center"
           >
             {SKILL_GROUPS[activeIndex]?.label ?? "Frontend"}
           </button>
           <button
             onClick={goToNextGroup}
             aria-label="Next skill group"
-            className="h-11 w-11 rounded-full border border-[#7cff67]/30 text-[#7cff67] bg-black/40 flex items-center justify-center"
+            className="h-11 w-11 rounded-full border border-[#00bfff]/30 text-[#00bfff] bg-black/40 flex items-center justify-center"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <polyline points="9 6 15 12 9 18" />
@@ -153,7 +153,7 @@ const SkillCard = memo(function SkillCard({
   logo: string;
 }) {
   return (
-    <div className="rounded-xl border border-[#7cff67]/20 bg-black/40 p-5 text-center transition-all duration-300 hover:border-[#7cff67]/50 hover:scale-[1.03]">
+    <div className="rounded-xl border border-[#00bfff]/20 bg-black/40 p-5 text-center transition-all duration-300 hover:border-[#00bfff]/50 hover:scale-[1.03]">
       <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg bg-black/50">
         <Image src={logo} alt={name} width={30} height={30} className="object-contain" />
       </div>

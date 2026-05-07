@@ -167,7 +167,7 @@ export default function SkillSphere({ size = 520, mobileSize = 520 }: SkillSpher
                     className="absolute inset-0 rounded-full pointer-events-none"
                     style={{
                         background:
-                            "radial-gradient(ellipse at center, rgba(124,255,103,0.07) 0%, rgba(82,39,255,0.05) 45%, transparent 70%)",
+                            "radial-gradient(ellipse at center, rgba(0,191,255,0.07) 0%, rgba(82,39,255,0.05) 45%, transparent 70%)",
                     }}
                 />
 

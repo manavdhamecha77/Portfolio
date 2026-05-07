@@ -64,13 +64,13 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/60 border-b border-[#7cff67]/20"
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/60 border-b border-[#00bfff]/20"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
         <a
           ref={logoRef}
           href="#home"
-          className="text-sm sm:text-base font-black font-mono tracking-[0.3em] uppercase text-[#7cff67] will-change-transform hover:text-white transition-colors"
+          className="text-sm sm:text-base font-black font-mono tracking-[0.3em] uppercase text-[#00bfff] will-change-transform hover:text-white transition-colors"
         >
           Manav
         </a>
@@ -84,18 +84,18 @@ export default function Navbar() {
             >
               <a
                 href={item.href}
-                className="block pb-1 text-white/80 group-hover:text-[#7cff67] transition-colors"
+                className="block pb-1 text-white/80 group-hover:text-[#00bfff] transition-colors"
               >
                 {item.label}
               </a>
-              <span className="absolute left-0 -bottom-[2px] w-0 h-[2px] bg-[#7cff67] group-hover:w-full transition-all duration-300" />
+              <span className="absolute left-0 -bottom-[2px] w-0 h-[2px] bg-[#00bfff] group-hover:w-full transition-all duration-300" />
             </li>
           ))}
         </ul>
 
         <button
           onClick={() => setOpen((o) => !o)}
-          className="md:hidden text-[#7cff67] text-xl font-mono font-bold"
+          className="md:hidden text-[#00bfff] text-xl font-mono font-bold"
           aria-expanded={open}
         >
           {open ? "✕" : "☰"}
@@ -104,7 +104,7 @@ export default function Navbar() {
 
       <div
         ref={mobileRef}
-        className={`md:hidden px-6 pb-6 pt-4 flex flex-col gap-3 items-center backdrop-blur-xl bg-black/60 border-t border-[#7cff67]/20 transition-all ${open ? "block" : "hidden"
+        className={`md:hidden px-6 pb-6 pt-4 flex flex-col gap-3 items-center backdrop-blur-xl bg-black/60 border-t border-[#00bfff]/20 transition-all ${open ? "block" : "hidden"
           }`}
       >
         {NAV_ITEMS.map((item) => (
@@ -112,7 +112,7 @@ export default function Navbar() {
             key={item.label}
             href={item.href}
             onClick={() => setOpen(false)}
-            className="w-max px-6 py-2 rounded-full text-xs uppercase tracking-[0.25em] text-white/80 hover:text-black hover:bg-[#7cff67] transition font-mono font-bold text-center"
+            className="w-max px-6 py-2 rounded-full text-xs uppercase tracking-[0.25em] text-white/80 hover:text-black hover:bg-[#00bfff] transition font-mono font-bold text-center"
           >
             {item.label}
           </a>
