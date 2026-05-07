@@ -42,7 +42,7 @@ export default function Achievements() {
   const achievement = ACHIEVEMENTS[current];
 
   return (
-    <section id="achievements" className="py-32 px-6 sm:px-10 overflow-hidden">
+    <section id="achievements" className="py-14 px-6 sm:px-10 overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">
@@ -82,11 +82,11 @@ export default function Achievements() {
               </div>
             ))}
 
-            {/* Bottom gradient overlay for text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+            {/* Bottom gradient overlay for text (desktop only) */}
+            <div className="hidden sm:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-            {/* Text overlay */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-10">
+            {/* Text overlay (desktop only) */}
+            <div className="hidden sm:block absolute bottom-0 left-0 right-0 p-5 sm:p-8 md:p-10">
               <h3
                 key={`title-${current}`}
                 className="text-xl sm:text-2xl md:text-3xl font-bold font-mono uppercase tracking-tight text-white transition-all duration-500"
@@ -120,6 +120,22 @@ export default function Achievements() {
                 <polyline points="9 6 15 12 9 18" />
               </svg>
             </button>
+          </div>
+
+          {/* Mobile text below image for better image visibility */}
+          <div className="sm:hidden mt-4 px-1">
+            <h3
+              key={`title-mobile-${current}`}
+              className="text-lg font-bold font-mono uppercase tracking-tight text-white transition-all duration-500"
+            >
+              {achievement.title}
+            </h3>
+            <p
+              key={`desc-mobile-${current}`}
+              className="mt-2 text-[11px] text-white/70 font-mono leading-relaxed transition-all duration-500 delay-100"
+            >
+              {achievement.desc}
+            </p>
           </div>
 
           {/* Dot indicators */}

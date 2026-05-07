@@ -11,7 +11,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen px-6 sm:px-10 py-32"
+      className="px-6 sm:px-10 py-14"
     >
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">

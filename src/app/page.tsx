@@ -7,6 +7,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import About from "@/components/About";
 import Navbar from "@/components/Navbar";
+import Skills from "@/components/Skills";
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Skills />
       <Portfolio />
       <Achievements />
 

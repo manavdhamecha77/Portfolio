@@ -1,6 +1,6 @@
 // /constants/index.ts
 
-export const PORTFOLIO_TABS = ["projects", "certificates", "skills"] as const;
+export const PORTFOLIO_TABS = ["projects", "certificates"] as const;
 export type PortfolioTab = (typeof PORTFOLIO_TABS)[number];
 
 export const ABOUT_TABS = ["Experience", "Education"] as const;

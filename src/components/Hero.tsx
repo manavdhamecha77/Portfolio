@@ -133,7 +133,7 @@ export default function Hero() {
           </h2>
 
           {/* Buttons */}
-          <div className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap">
+          <div className="mt-14 flex flex-row justify-center lg:justify-start gap-3 sm:gap-6 flex-nowrap">
             <a
               ref={(el) => { buttonsRef.current[0] = el; }}
               href="#portfolio"

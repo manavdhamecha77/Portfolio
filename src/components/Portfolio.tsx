@@ -5,7 +5,6 @@ import Image from "next/image";
 import {
   PORTFOLIO_TABS,
   type PortfolioTab,
-  SKILLS,
   CERTIFICATES,
   PROJECTS,
 } from "@/constants";
@@ -18,7 +17,7 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="min-h-screen px-6 sm:px-10 py-32"
+      className="px-6 sm:px-10 py-14"
     >
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
@@ -26,8 +25,7 @@ export default function Portfolio() {
           Portfolio Showcase
         </h2>
         <p className="mt-6 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-mono tracking-wide">
-          Explore my journey through projects, certifications, and technical
-          expertise.
+          Explore my journey through projects and certifications.
         </p>
       </div>
 
@@ -53,7 +51,6 @@ export default function Portfolio() {
       <div className="mt-16">
         {activeTab === "projects" && <Projects />}
         {activeTab === "certificates" && <Certificates />}
-        {activeTab === "skills" && <Skills />}
       </div>
     </section>
   );
@@ -61,7 +58,7 @@ export default function Portfolio() {
 
 const Projects = memo(function Projects() {
   const [showMore, setShowMore] = useState(false);
-  const initialVisibleCount = 4;
+  const initialVisibleCount = 3;
   const hasMore = PROJECTS.length > initialVisibleCount;
 
   // Memoize visible projects
@@ -76,7 +73,7 @@ const Projects = memo(function Projects() {
         <ProjectCard
           key={p.title}
           project={p}
-          hidden={!showMore && i >= 4}
+          hidden={!showMore && i >= initialVisibleCount}
         />
       ))}
 
@@ -221,71 +218,6 @@ const CertificateCard = memo(function CertificateCard({
       >
         View Certificate →
       </a>
-    </div>
-  );
-});
-
-const Skills = memo(function Skills() {
-  const [showMore, setShowMore] = useState(false);
-
-  // Use useMemo to check if mobile instead of direct window access
-  const isMobile = useMemo(() => {
-    if (typeof window === "undefined") return false;
-    return window.innerWidth < 640;
-  }, []);
-
-  // Memoize visible skills
-  const visible = useMemo(() => {
-    if (!isMobile) return SKILLS;
-    return showMore ? SKILLS : SKILLS.slice(0, 20);
-  }, [isMobile, showMore]);
-
-  const hasMore = SKILLS.length > 20;
-
-  return (
-    <>
-      <div className="flex justify-center w-full">
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-4 place-items-center">
-          {visible.map((s) => (
-            <SkillCard key={s.name} skill={s} />
-          ))}
-        </div>
-      </div>
-
-      {hasMore && isMobile && (
-        <div className="flex justify-center mt-8 sm:hidden">
-          <button
-            onClick={() => setShowMore(!showMore)}
-            className="px-8 py-3 rounded-full bg-[#7cff67] text-black text-xs font-bold font-mono uppercase tracking-[0.2em] shadow-[0_0_28px_rgba(124,255,103,0.4)] transition-all hover:scale-[1.05]"
-          >
-            {showMore ? "Show Less" : "Show More"}
-          </button>
-        </div>
-      )}
-    </>
-  );
-});
-
-// Separate SkillCard component
-const SkillCard = memo(function SkillCard({
-  skill: s,
-}: {
-  skill: (typeof SKILLS)[number];
-}) {
-  return (
-    <div className="relative group h-16 w-16 sm:h-20 sm:w-20 rounded-xl bg-black/40 border border-[#7cff67]/20 backdrop-blur-sm flex justify-center items-center hover:border-[#7cff67]/50 hover:scale-110 transition-all duration-300">
-      <Image
-        src={s.logo}
-        alt={s.name}
-        width={32}
-        height={32}
-        className="object-contain"
-        loading="lazy"
-        quality={75}
-      />
-      <span className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 hidden sm:block text-[10px] uppercase tracking-wide text-white bg-black/90 border border-[#7cff67]/30 px-3 py-1 rounded-lg whitespace-nowrap pointer-events-none font-mono font-bold">
-        {s.name}
-      </span>
     </div>
   );
 });

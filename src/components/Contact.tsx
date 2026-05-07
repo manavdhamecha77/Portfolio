@@ -118,7 +118,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative min-h-screen px-6 md:px-10 py-32 flex items-center justify-center overflow-hidden"
+      className="relative px-6 md:px-10 py-14 flex items-center justify-center overflow-hidden"
     >
       {visible && !prefersReducedMotion && !isMobile && (
         <div className="absolute inset-0 -z-10">
