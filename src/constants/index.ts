@@ -81,6 +81,7 @@ export const PROJECTS = [
     title: "Prometheus",
     desc: "AI-powered intelligence platform for smart energy grid management.",
     image: "/projects/prometheus.png",
+    live: "",
     repo: "https://github.com/Purv-Kabaria/Prometheus-Adani",
     tech: ["NextJS", "TypeScript", "Python", "Pytorch", "Ollama", "Qwen2.5:3b", "MCP", "Docker", "SQLite"],
   },

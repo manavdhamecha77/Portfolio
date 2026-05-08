@@ -14,11 +14,7 @@ export default function Portfolio() {
   const [activeTab, setActiveTab] = useState<PortfolioTab>("projects");
 
   return (
-    <section
-      id="portfolio"
-      ref={sectionRef}
-      className="px-6 sm:px-10 py-14"
-    >
+    <section id="portfolio" ref={sectionRef} className="px-6 sm:px-10 py-14">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-5xl sm:text-6xl md:text-7xl font-black font-mono uppercase tracking-tighter text-white">
@@ -36,10 +32,11 @@ export default function Portfolio() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 text-center ${activeTab === tab
-                ? "bg-[#00bfff] text-black shadow-[0_0_24px_rgba(0,191,255,0.4)]"
-                : "text-white/70 hover:text-white"
-                }`}
+              className={`flex-1 min-w-0 px-2 sm:px-6 py-2 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] transition-all duration-300 text-center ${
+                activeTab === tab
+                  ? "bg-[#00bfff] text-black shadow-[0_0_24px_rgba(0,191,255,0.4)]"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
               <span className="block truncate">{tab}</span>
             </button>
@@ -64,7 +61,7 @@ const Projects = memo(function Projects() {
   // Memoize visible projects
   const visible = useMemo(
     () => (showMore ? PROJECTS : PROJECTS.slice(0, 6)),
-    [showMore]
+    [showMore],
   );
 
   return (
@@ -101,8 +98,9 @@ const ProjectCard = memo(function ProjectCard({
 }) {
   return (
     <div
-      className={`group p-6 rounded-xl border border-[#00bfff]/20 bg-black/40 backdrop-blur-sm text-white/90 transition-all duration-300 hover:border-[#00bfff]/50 hover:scale-[1.02] ${hidden ? "hidden sm:block" : ""
-        }`}
+      className={`group p-6 rounded-xl border border-[#00bfff]/20 bg-black/40 backdrop-blur-sm text-white/90 transition-all duration-300 hover:border-[#00bfff]/50 hover:scale-[1.02] ${
+        hidden ? "hidden sm:block" : ""
+      }`}
     >
       <div className="relative h-40 mb-4 rounded-lg overflow-hidden bg-white/5 border border-[#00bfff]/10">
         <Image
@@ -133,14 +131,16 @@ const ProjectCard = memo(function ProjectCard({
       </div>
 
       <div className="mt-4 flex justify-between text-[11px] uppercase tracking-widest text-white/60 font-mono font-bold">
-        <a
-          href={p.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-[#00bfff] transition-colors"
-        >
-          Live →
-        </a>
+        {p.live && (
+          <a
+            href={p.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#00bfff] transition-colors"
+          >
+            Live →
+          </a>
+        )}
         <a
           href={p.repo}
           target="_blank"
@@ -160,7 +160,7 @@ const Certificates = memo(function Certificates() {
   // Memoize visible certificates
   const visible = useMemo(
     () => (showMore ? CERTIFICATES : CERTIFICATES.slice(0, 6)),
-    [showMore]
+    [showMore],
   );
 
   return (
