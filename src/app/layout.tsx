@@ -12,9 +12,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Manav Dhamecha | Full Stack Developer & AI Enthusiast",
+  title: "Manav Dhamecha",
   description:
-    "B.Tech AI student at NIT Surat specializing in full-stack development, AI applications, and scalable software solutions. View my projects, skills, and certifications.",
+    "AI Undergrad NIT Surat specializing in Full-Stack Development, AI Applications, and Scalable Software Solutions. View my projects, skills, and achievements.",
   keywords: [
     "Manav Dhamecha",
     "Full Stack Developer",

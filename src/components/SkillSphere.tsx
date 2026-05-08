@@ -202,7 +202,7 @@ export default function SkillSphere({ size = 520, mobileSize = 520 }: SkillSpher
                         }}
                     >
                         <img
-                            src="/manav.jpeg"
+                            src="/profile.jpeg"
                             alt="Manav"
                             style={{
                                 width: "100%",

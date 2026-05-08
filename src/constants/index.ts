@@ -78,6 +78,13 @@ export const CERTIFICATES = [
 
 export const PROJECTS = [
   {
+    title: "Prometheus",
+    desc: "AI-powered intelligence platform for smart energy grid management.",
+    image: "/projects/prometheus.png",
+    repo: "https://github.com/Purv-Kabaria/Prometheus-Adani",
+    tech: ["NextJS", "TypeScript", "Python", "Pytorch", "Ollama", "Qwen2.5:3b", "MCP", "Docker", "SQLite"],
+  },
+  {
     title: "Incognito Chat",
     desc: "Ephemeral private self-destructive chat rooms.",
     image: "/projects/incognito-chat.png",
@@ -190,6 +197,11 @@ export const EDUCATION = [
 ] as const;
 
 export const ACHIEVEMENTS = [
+  {
+    title: "PowerMind Hackathon 2026 Winner",
+    desc: "Winner of PowerMind 2026, organized by Adani Group & CDC at NIT Surat, competing against 180+ participants.",
+    image: "/achievements/powermind.jpeg",
+  },
   {
     title: "Echelon 2026 Winner",
     desc: "Winner of Echelon 2026, a national 24-hour hackathon organized by ISEA & ACM at NIT Surat, competing against 40+ teams.",

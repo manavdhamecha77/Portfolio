@@ -28,7 +28,7 @@ const socialLinks = [
   },
   {
     name: "Download CV",
-    url: "https://drive.google.com/file/d/12HYXe97z9oe_ekEPBxPsNk2o1hmNP1TE/view?usp=drive_link",
+    url: "https://drive.google.com/drive/folders/1iZPAb3Itz5T5GCV39QASs-qNMw4yEQVa?usp=sharing",
     download: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
