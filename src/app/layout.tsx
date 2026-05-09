@@ -33,17 +33,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://manav-dhamecha.vercel.app",
   },
+  verification: {
+    google: "7kPnURCuDWxc2Qma8XpamYPJe2REHW1i_Q1Z3ZYQeuc",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://manav-dhamecha.vercel.app",
-    title: "Manav Dhamecha | Full Stack Developer & AI Enthusiast",
+    title: "Manav Dhamecha",
     description:
-      "B.Tech AI student at NIT Surat specializing in full-stack development, AI applications, and scalable software solutions.",
-    siteName: "Manav Dhamecha Portfolio",
+      "AI undergrad at SVNIT Surat who thrives at the intersection of research and engineering. I've published NLP research at international venues, won national hackathons, and shipped production software.",
+    siteName: "Manav Dhamecha",
     images: [
       {
-        url: "/og-image.png", // Create this image (1200x630px)
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Manav Dhamecha Portfolio",

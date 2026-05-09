@@ -4,7 +4,7 @@ export default function StructuredData() {
     "@type": "Person",
     name: "Manav Dhamecha",
     url: "https://manav-dhamecha.vercel.app",
-    image: "https://manav-dhamecha.vercel.app/profile.jpg",
+    image: "https://manav-dhamecha.vercel.app/profile.jpeg",
     sameAs: [
       "https://github.com/manavdhamecha77",
       "https://linkedin.com/in/manavdhamecha",
