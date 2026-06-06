@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Manav Dhamecha",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image-1.png",
         width: 1200,
         height: 630,
         alt: "Manav Dhamecha Portfolio",
